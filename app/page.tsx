@@ -152,26 +152,12 @@ export default function Home() {
               {/* Circular Border and Image */}
               <div className="h-64 w-64 md:h-80 md:w-80 rounded-full border border-[#4A5D11] p-3 flex items-center justify-center bg-white shadow-sm overflow-hidden">
                 <div className="h-full w-full rounded-full bg-[#FAF9D8] overflow-hidden flex items-center justify-center relative">
-                  {/* Styled SVG Portrait Illustration */}
-                  <svg className="w-4/5 h-4/5 text-[#0A1128]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Head Background */}
-                    <circle cx="50" cy="40" r="24" fill="#E2DC88" opacity="0.6" />
-                    {/* Shoulders */}
-                    <path d="M15 90C15 75 30 65 50 65C70 65 85 75 85 90" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                    {/* Head Outline */}
-                    <circle cx="50" cy="40" r="20" stroke="currentColor" strokeWidth="4" fill="#FAF9D8" />
-                    {/* Glasses representing tech & design */}
-                    <circle cx="43" cy="38" r="6" stroke="currentColor" strokeWidth="3" />
-                    <circle cx="57" cy="38" r="6" stroke="currentColor" strokeWidth="3" />
-                    <line x1="49" y1="38" x2="51" y2="38" stroke="currentColor" strokeWidth="3" />
-                    {/* Hair Details */}
-                    <path d="M35 30C40 22 50 20 60 22C65 24 67 28 67 31" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                    {/* Smile */}
-                    <path d="M46 50C48 52 52 52 54 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                  </svg>
-                  {/* Subtle Node Graphic inside the avatar representing systems thinking */}
-                  <div className="absolute top-1/2 left-4 w-2 h-2 rounded-full bg-[#4A5D11]" />
-                  <div className="absolute top-1/3 right-6 w-2.5 h-2.5 rounded-full bg-[#4A5D11]" />
+                  {/* User Portrait Photo */}
+                  <img 
+                    src="/my-photo.jpeg" 
+                    alt="Anup Thakre Portrait" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               
