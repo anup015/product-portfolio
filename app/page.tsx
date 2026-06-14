@@ -120,7 +120,7 @@ export default function Home() {
               <span>Builder</span>
             </h1>
             
-            <span className="text-lg font-bold text-[#03045E] mt-2">based in India.</span>
+            <span className="text-lg font-bold text-[#03045E] mt-2">based in Nagpur.</span>
             
             <div className="mt-6 flex flex-wrap gap-4">
               <a 
@@ -158,7 +158,7 @@ export default function Home() {
                 <img 
                   src="/my-photo.jpeg" 
                   alt="Anup Thakre Portrait" 
-                  className="w-full h-full object-cover object-[center_20%] scale-[1.38]"
+                  className="w-full h-full object-cover object-[center_42%] scale-[1.15]"
                 />
               </div>
               
