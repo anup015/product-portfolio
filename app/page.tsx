@@ -158,7 +158,7 @@ export default function Home() {
                 <img 
                   src="/my-photo.jpeg" 
                   alt="Anup Thakre Portrait" 
-                  className="w-full h-full object-cover object-[center_42%] scale-[1.15]"
+                  className="w-full h-full object-cover object-[center_54%]"
                 />
               </div>
               
