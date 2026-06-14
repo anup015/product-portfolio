@@ -2,12 +2,12 @@
 
 :root {
   --background: #FDFBE2;
-  --foreground: #0A1128;
-  --primary: #0A1128;
+  --foreground: #03045E;
+  --primary: #03045E;
   --secondary: #4A5D11;
   --accent: #F5E88F;
   --muted: #5C6274;
-  --border: #0A1128;
+  --border: #03045E;
 }
 
 @theme {

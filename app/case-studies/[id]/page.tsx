@@ -427,12 +427,12 @@ export default function CaseStudyPage() {
 
   if (!study) {
     return (
-      <div className="min-h-screen bg-[#FDFBE2] flex flex-col items-center justify-center p-6 text-center text-[#0A1128]">
+      <div className="min-h-screen bg-[#FDFBE2] flex flex-col items-center justify-center p-6 text-center text-[#03045E]">
         <h1 className="text-2xl font-bold">Case Study Not Found</h1>
         <p className="text-[#5C6274] mt-2">The case study route you requested could not be resolved.</p>
         <Link 
           href="/" 
-          className="mt-6 inline-flex h-10 items-center justify-center rounded-sm border border-[#0A1128] bg-[#F5E88F] px-6 text-sm font-bold text-[#0A1128] shadow-[2px_2px_0px_0px_#0A1128]"
+          className="mt-6 inline-flex h-10 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-6 text-sm font-bold text-[#03045E] shadow-[2px_2px_0px_0px_#03045E]"
         >
           Return Home
         </Link>
@@ -441,35 +441,35 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBE2] font-sans antialiased text-[#0A1128] pb-24">
+    <div className="min-h-screen bg-[#FDFBE2] font-sans antialiased text-[#03045E] pb-24">
       {/* Header */}
-      <header className="sticky top-0 z-40 w-full border-b border-[#0A1128]/20 bg-[#FDFBE2]/90 backdrop-blur-md">
+      <header className="sticky top-0 z-40 w-full border-b border-[#03045E]/20 bg-[#FDFBE2]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-4xl h-16 items-center justify-between px-6">
           <Link 
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#0A1128] hover:opacity-75 transition-opacity"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity"
           >
             <ArrowLeft size={16} />
             <span>Back to Portfolio</span>
           </Link>
-          <div className="text-xs bg-[#F5E88F] border border-[#0A1128] font-bold px-3 py-1 rounded-sm shadow-[1px_1px_0px_0px_#0A1128]">
+          <div className="text-xs bg-[#F5E88F] border border-[#03045E] font-bold px-3 py-1 rounded-sm shadow-[1px_1px_0px_0px_#03045E]">
             {study.category}
           </div>
         </div>
       </header>
 
       {/* Hero Content */}
-      <section className="py-16 md:py-20 border-b border-[#0A1128]/20 bg-white/40">
+      <section className="py-16 md:py-20 border-b border-[#03045E]/20 bg-white/40">
         <div className="mx-auto max-w-4xl px-6">
           <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-widest">{study.category}</span>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-[#0A1128] mt-3">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-[#03045E] mt-3">
             {study.title}
           </h1>
           <p className="text-lg md:text-xl text-[#5C6274] mt-3 font-semibold leading-relaxed max-w-3xl">
             {study.tagline}
           </p>
-          <div className="mt-8 p-6 border-2 border-[#0A1128] bg-[#FDFBE2]/30 rounded-sm text-sm text-[#0A1128] leading-relaxed shadow-[4px_4px_0px_0px_#0A1128] font-serif">
-            <span className="font-sans font-bold uppercase tracking-wider text-[11px] bg-[#0A1128] text-white px-2 py-0.5 rounded-sm mr-2">Context</span>
+          <div className="mt-8 p-6 border-2 border-[#03045E] bg-[#FDFBE2]/30 rounded-sm text-sm text-[#03045E] leading-relaxed shadow-[4px_4px_0px_0px_#03045E] font-serif">
+            <span className="font-sans font-bold uppercase tracking-wider text-[11px] bg-[#03045E] text-white px-2 py-0.5 rounded-sm mr-2">Context</span>
             {study.context}
           </div>
         </div>
@@ -480,24 +480,24 @@ export default function CaseStudyPage() {
         
         {/* Section 1: Problem */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Target size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">Problem Definition</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Problem Definition</h2>
           </div>
-          <p className="font-serif text-base text-[#0A1128]/85 leading-relaxed max-w-3xl">
+          <p className="font-serif text-base text-[#03045E]/85 leading-relaxed max-w-3xl">
             {study.problem}
           </p>
         </section>
 
         {/* Section 2: Research */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <BookOpen size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">User Research</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">User Research</h2>
           </div>
           <div className="space-y-1">
             <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">Methodology</span>
-            <p className="font-serif text-base text-[#0A1128] leading-relaxed italic bg-white p-5 border border-[#0A1128] rounded-sm shadow-[2px_2px_0px_0px_#0A1128]">
+            <p className="font-serif text-base text-[#03045E] leading-relaxed italic bg-white p-5 border border-[#03045E] rounded-sm shadow-[2px_2px_0px_0px_#03045E]">
               "{study.research.methodology}"
             </p>
           </div>
@@ -506,10 +506,10 @@ export default function CaseStudyPage() {
             <ul className="space-y-3">
               {study.research.insights.map((insight, idx) => (
                 <li key={idx} className="flex items-start gap-4 text-sm md:text-base text-[#5C6274] leading-relaxed">
-                  <div className="h-6 w-6 rounded-full border border-[#0A1128] bg-[#F5E88F] text-[#0A1128] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-[1px_1px_0px_0px_#0A1128]">
+                  <div className="h-6 w-6 rounded-full border border-[#03045E] bg-[#F5E88F] text-[#03045E] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-[1px_1px_0px_0px_#03045E]">
                     {idx + 1}
                   </div>
-                  <span className="font-serif text-[#0A1128]/85">{insight}</span>
+                  <span className="font-serif text-[#03045E]/85">{insight}</span>
                 </li>
               ))}
             </ul>
@@ -518,36 +518,36 @@ export default function CaseStudyPage() {
 
         {/* Section 3: Personas */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Users size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">User Personas</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">User Personas</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
             {study.personas.map((persona, idx) => (
-              <div key={idx} className="bg-white border border-[#0A1128] rounded-sm p-6 shadow-[4px_4px_0px_0px_#0A1128] hover:shadow-[6px_6px_0px_0px_#0A1128] transition-all space-y-4">
-                <div className="flex justify-between items-start gap-2 border-b border-[#0A1128]/10 pb-2">
+              <div key={idx} className="bg-white border border-[#03045E] rounded-sm p-6 shadow-[4px_4px_0px_0px_#03045E] hover:shadow-[6px_6px_0px_0px_#03045E] transition-all space-y-4">
+                <div className="flex justify-between items-start gap-2 border-b border-[#03045E]/10 pb-2">
                   <div>
-                    <h3 className="font-black text-[#0A1128] text-base leading-none">{persona.name}</h3>
+                    <h3 className="font-black text-[#03045E] text-base leading-none">{persona.name}</h3>
                     <span className="text-[11px] text-[#4A5D11] font-bold uppercase tracking-wider block mt-1">{persona.role}</span>
                   </div>
-                  <span className="text-[9px] font-bold uppercase tracking-wider bg-[#FAF9D8] px-2 py-0.5 border border-[#0A1128]/25 rounded-sm">
+                  <span className="text-[9px] font-bold uppercase tracking-wider bg-[#FAF9D8] px-2 py-0.5 border border-[#03045E]/25 rounded-sm">
                     {idx === 0 ? "Primary" : idx === 1 ? "Secondary" : `User Archetype ${idx}`}
                   </span>
                 </div>
                 <p className="font-serif text-xs md:text-sm text-[#5C6274] leading-relaxed italic">
                   "{persona.bio}"
                 </p>
-                <div className="space-y-4 border-t border-[#0A1128]/10 pt-3">
+                <div className="space-y-4 border-t border-[#03045E]/10 pt-3">
                   <div>
-                    <span className="text-[9px] font-black uppercase text-[#0A1128] tracking-widest block">Needs</span>
+                    <span className="text-[9px] font-black uppercase text-[#03045E] tracking-widest block">Needs</span>
                     <ul className="text-xs text-[#5C6274] list-disc list-inside space-y-1 mt-1 leading-relaxed">
-                      {persona.needs.map((n, i) => <li key={i} className="font-serif text-[#0A1128]/80">{n}</li>)}
+                      {persona.needs.map((n, i) => <li key={i} className="font-serif text-[#03045E]/80">{n}</li>)}
                     </ul>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-[#0A1128] tracking-widest block">Frictions</span>
+                    <span className="text-[9px] font-black uppercase text-[#03045E] tracking-widest block">Frictions</span>
                     <ul className="text-xs text-[#5C6274] list-disc list-inside space-y-1 mt-1 leading-relaxed">
-                      {persona.painPoints.map((p, i) => <li key={i} className="font-serif text-[#0A1128]/80">{p}</li>)}
+                      {persona.painPoints.map((p, i) => <li key={i} className="font-serif text-[#03045E]/80">{p}</li>)}
                     </ul>
                   </div>
                 </div>
@@ -558,24 +558,24 @@ export default function CaseStudyPage() {
 
         {/* Section 4: Competitor Analysis */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Compass size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">Competitor Analysis</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Competitor Analysis</h2>
           </div>
-          <div className="overflow-x-auto border-2 border-[#0A1128] rounded-sm bg-white shadow-[3px_3px_0px_0px_#0A1128]">
+          <div className="overflow-x-auto border-2 border-[#03045E] rounded-sm bg-white shadow-[3px_3px_0px_0px_#03045E]">
             <table className="w-full text-left border-collapse text-xs md:text-sm">
               <thead>
-                <tr className="bg-[#F5E88F] border-b-2 border-[#0A1128] text-[#0A1128] font-black uppercase tracking-wider text-[11px]">
-                  <th className="p-4 border-r border-[#0A1128]">Competitor</th>
-                  <th className="p-4 border-r border-[#0A1128]">What They Do Well</th>
+                <tr className="bg-[#F5E88F] border-b-2 border-[#03045E] text-[#03045E] font-black uppercase tracking-wider text-[11px]">
+                  <th className="p-4 border-r border-[#03045E]">Competitor</th>
+                  <th className="p-4 border-r border-[#03045E]">What They Do Well</th>
                   <th className="p-4">Where They Fall Short</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#0A1128] text-[#0A1128] font-medium">
+              <tbody className="divide-y divide-[#03045E] text-[#03045E] font-medium">
                 {study.competitors.map((comp, idx) => (
                   <tr key={idx} className="hover:bg-[#FAF9D8]/30 transition-colors">
-                    <td className="p-4 font-black text-[#0A1128] border-r border-[#0A1128] bg-[#FAF9D8]/10">{comp.name}</td>
-                    <td className="p-4 leading-relaxed border-r border-[#0A1128] font-serif text-sm">{comp.pros}</td>
+                    <td className="p-4 font-black text-[#03045E] border-r border-[#03045E] bg-[#FAF9D8]/10">{comp.name}</td>
+                    <td className="p-4 leading-relaxed border-r border-[#03045E] font-serif text-sm">{comp.pros}</td>
                     <td className="p-4 leading-relaxed font-serif text-sm">{comp.cons}</td>
                   </tr>
                 ))}
@@ -586,17 +586,17 @@ export default function CaseStudyPage() {
 
         {/* Section 5: Product Decisions */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Layers size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">Product Decisions</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Product Decisions</h2>
           </div>
           <div className="space-y-6">
             {study.decisions.map((dec, idx) => (
-              <div key={idx} className="bg-white border border-[#0A1128] rounded-sm p-6 shadow-[4px_4px_0px_0px_#0A1128] hover:shadow-[5px_5px_0px_0px_#0A1128] transition-all">
-                <span className="text-[9px] font-bold bg-[#F5E88F] text-[#0A1128] border border-[#0A1128] px-2 py-0.5 rounded-sm font-mono uppercase">Decision {idx + 1}</span>
-                <h3 className="text-lg font-black text-[#0A1128] mt-2 tracking-tight">{dec.decision}</h3>
+              <div key={idx} className="bg-white border border-[#03045E] rounded-sm p-6 shadow-[4px_4px_0px_0px_#03045E] hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+                <span className="text-[9px] font-bold bg-[#F5E88F] text-[#03045E] border border-[#03045E] px-2 py-0.5 rounded-sm font-mono uppercase">Decision {idx + 1}</span>
+                <h3 className="text-lg font-black text-[#03045E] mt-2 tracking-tight">{dec.decision}</h3>
                 <p className="text-sm text-[#5C6274] mt-2 leading-relaxed font-serif">
-                  <span className="font-sans font-bold text-[#0A1128] uppercase tracking-wider text-[10px] block mb-1">Product Rationale</span>
+                  <span className="font-sans font-bold text-[#03045E] uppercase tracking-wider text-[10px] block mb-1">Product Rationale</span>
                   {dec.rationale}
                 </p>
               </div>
@@ -606,20 +606,20 @@ export default function CaseStudyPage() {
 
         {/* Section 6: Key Features */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Brain size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">Key Features & Design Scope</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Key Features & Design Scope</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
             {study.features.map((feature, idx) => (
-              <div key={idx} className="border border-[#0A1128] bg-white rounded-sm p-6 shadow-[3px_3px_0px_0px_#0A1128] hover:shadow-[5px_5px_0px_0px_#0A1128] transition-all flex flex-col justify-between">
+              <div key={idx} className="border border-[#03045E] bg-white rounded-sm p-6 shadow-[3px_3px_0px_0px_#03045E] hover:shadow-[5px_5px_0px_0px_#03045E] transition-all flex flex-col justify-between">
                 <div>
-                  <h3 className="font-black text-[#0A1128] text-lg tracking-tight">{feature.name}</h3>
+                  <h3 className="font-black text-[#03045E] text-lg tracking-tight">{feature.name}</h3>
                   <p className="text-sm text-[#5C6274] mt-2 leading-relaxed font-serif">
                     {feature.description}
                   </p>
                 </div>
-                <div className="bg-[#FAF9D8] border border-[#0A1128] rounded-sm p-4 mt-4 text-[12px] text-[#0A1128]">
+                <div className="bg-[#FAF9D8] border border-[#03045E] rounded-sm p-4 mt-4 text-[12px] text-[#03045E]">
                   <span className="font-sans font-black uppercase tracking-wider block mb-1 text-[10px] text-[#4A5D11]">PM Reasoning</span>
                   <div className="font-serif">{feature.pmAngle}</div>
                 </div>
@@ -630,11 +630,11 @@ export default function CaseStudyPage() {
 
         {/* Section 7: Metrics */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <BarChart2 size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">Metrics Framework</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Metrics Framework</h2>
           </div>
-          <div className="bg-[#0A1128] border-2 border-[#0A1128] text-white rounded-sm p-8 space-y-6 shadow-[6px_6px_0px_0px_#F5E88F]">
+          <div className="bg-[#03045E] border-2 border-[#03045E] text-white rounded-sm p-8 space-y-6 shadow-[6px_6px_0px_0px_#F5E88F]">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F5E88F] bg-white/10 px-2.5 py-1 rounded-sm">North Star Metric</span>
               <h3 className="text-2xl font-black mt-3 text-[#F5E88F] tracking-tight">{study.metrics.northStar}</h3>
@@ -656,15 +656,15 @@ export default function CaseStudyPage() {
 
         {/* Section 8: Learnings */}
         <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#0A1128] pb-3 mb-2 pl-1">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <CheckCircle size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#0A1128] tracking-tight">Key Learnings</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Key Learnings</h2>
           </div>
           <ul className="space-y-4">
             {study.learnings.map((learning, idx) => (
               <li key={idx} className="flex items-start gap-3 text-sm md:text-base text-[#5C6274] leading-relaxed">
-                <div className="h-2.5 w-2.5 rounded-full bg-[#4A5D11] shrink-0 mt-2 border border-[#0A1128]" />
-                <span className="font-serif text-[#0A1128]/85">{learning}</span>
+                <div className="h-2.5 w-2.5 rounded-full bg-[#4A5D11] shrink-0 mt-2 border border-[#03045E]" />
+                <span className="font-serif text-[#03045E]/85">{learning}</span>
               </li>
             ))}
           </ul>
@@ -672,10 +672,10 @@ export default function CaseStudyPage() {
       </main>
 
       {/* Bottom CTA */}
-      <section className="mt-20 text-center max-w-4xl mx-auto px-6 pt-12 border-t border-[#0A1128]/20">
+      <section className="mt-20 text-center max-w-4xl mx-auto px-6 pt-12 border-t border-[#03045E]/20">
         <Link 
           href="/" 
-          className="inline-flex h-11 items-center justify-center rounded-sm border border-[#0A1128] bg-[#F5E88F] px-8 text-sm font-bold text-[#0A1128] hover:bg-[#ebd96e] transition-colors shadow-[3px_3px_0px_0px_#0A1128]"
+          className="inline-flex h-11 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-8 text-sm font-bold text-[#03045E] hover:bg-[#ebd96e] transition-colors shadow-[3px_3px_0px_0px_#03045E]"
         >
           Return to Portfolio
         </Link>
