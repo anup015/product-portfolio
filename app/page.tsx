@@ -382,8 +382,8 @@ export default function Home() {
 
                 <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
                   <li>Identified <strong className="text-[#03045E]">fragmented internship workflows</strong> as the core user pain point → defined product requirements and designed a unified application and approval system → reduced coordination effort by <strong className="text-[#03045E]">40%</strong> across <strong className="text-[#03045E]">500+ users</strong>.</li>
-                  <li>Mapped multi-role coordination challenges through user research → prioritized <strong className="text-[#03045E]">role-based access and structured workflows</strong> → enabled secure, scalable interactions across <strong className="text-[#03045E]">3+ distinct user roles</strong>.</li>
-                  <li>Diagnosed low opportunity-match relevance as a key drop-off driver → scoped and shipped a <strong className="text-[#03045E]">data-driven recommendation feature</strong> → improved matching relevance and reduced search time by <strong className="text-[#03045E]">35%</strong>.</li>
+                  <li>Mapped multi-role coordination challenges through user research → prioritized <strong className="text-[#03045E]">role-based access and structured workflows</strong> → enabled secure, scalable interactions across <strong className="text-[#03045E]">4 distinct user roles</strong> (Student, Mentor, TPO, Employer).</li>
+                  <li>Diagnosed low opportunity-match relevance as a key drop-off driver → scoped and shipped an <strong className="text-[#03045E]">AI-powered FastAPI recommendation microservice</strong> → improved matching relevance and reduced search time by <strong className="text-[#03045E]">35%</strong>.</li>
                 </ul>
               </div>
 
@@ -433,14 +433,14 @@ export default function Home() {
 
                 <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
                   <li>Identified <strong className="text-[#03045E]">fragmented academic resources</strong> as the primary barrier to student productivity → defined MVP scope covering notes, PYQs, announcements, and collaboration → improved accessibility for <strong className="text-[#03045E]">300+ students</strong>.</li>
-                  <li>Synthesized student feedback revealing inefficient workflows → prioritized and shipped <strong className="text-[#03045E]">query systems, study groups, timetable management, and discussion spaces</strong> → increased collaboration efficiency by <strong className="text-[#03045E]">45%</strong>.</li>
-                  <li>Mapped multi-role access as a trust requirement → designed <strong className="text-[#03045E]">role-based authentication workflows</strong> for students, faculty, and admins → enabled seamless, secure experiences at scale.</li>
+                  <li>Synthesized student feedback revealing inefficient workflows → prioritized and shipped <strong className="text-[#03045E]">query systems (Query Desk), study groups, and discussion spaces</strong> → increased collaboration efficiency by <strong className="text-[#03045E]">45%</strong>.</li>
+                  <li>Mapped multi-role access as a trust requirement → designed role-based access control for <strong className="text-[#03045E]">4 key user roles</strong> (Students, Academic Reps, Faculty, Admins) → enabled secure resource approval pipelines.</li>
                 </ul>
               </div>
 
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#03045E]/10">
                 <Link 
-                  href="/case-studies/saksham" 
+                  href="/case-studies/acadence" 
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-white px-4 text-xs font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Read Case Study ↗

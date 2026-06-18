@@ -182,43 +182,43 @@ const CASE_STUDIES_DATA: Record<string, {
   },
   "saksham": {
     title: "SAKSHAM",
-    tagline: "Unified College Internship Workflow & Matching Portal",
+    tagline: "National Internship & Placement Portal (SIH 2025 National Winner)",
     category: "SIH 2025 National Winner",
-    context: "Developed as a fullstack platform to automate and audit the complex academic-industry placement process.",
-    problem: "The University Training & Placement Office (TPO) handles hundreds of student internships, requiring manual verification of CGPAs, attendance, and signatures for No Objection Certificates (NOC). Student tracking was siloed on local spreadsheets, resulting in slow approvals, missed application deadlines, and administrative fatigue.",
+    context: "Developed as a full-stack, enterprise-grade portal to automate and secure the end-to-end internship/placement lifecycle and issue No Objection Certificates (NOCs) across Indian higher education institutions.",
+    problem: "The university placement ecosystem is highly fragmented. Students, faculty mentors, Training & Placement Officers (TPOs), and corporate recruiters operate in silos. This results in manual verification of student profiles (CGPA, skills, attendance), tedious paper-based signatures for No Objection Certificates (NOCs), high coordination delays (often up to 12 working days), low match rates between job requirements and student qualifications, and high drop-off in corporate engagement due to manual scheduling friction.",
     research: {
-      methodology: "Interviewed 4 TPO administrators and surveyed 50 final-year students at IIIT Nagpur.",
+      methodology: "Interviewed 4 TPO administrators, 5 corporate recruiters, and surveyed 50 students at IIIT Nagpur to identify workflow inefficiencies.",
       insights: [
-        "Average turnaround time (TAT) to issue a single NOC was 12 working days.",
-        "35% of student applications did not align with their actual course or tech stack specialization.",
-        "Over 100 emails were exchanged per day purely to verify student eligibility statuses."
+        "Average turnaround time (TAT) to issue a single NOC manually was 12 working days, causing 15% of students to risk losing offer deadlines.",
+        "Recruiters reported that 65% of applicants did not meet basic eligibility criteria, leading to screening fatigue.",
+        "Over 100 emails and physical visits were exchanged daily purely for application status tracking and verification logs."
       ]
     },
     personas: [
       {
         name: "Harshit",
         role: "TPO Administrator (The Reviewer)",
-        bio: "Responsible for signing off on NOC documents and matching students to partner company profiles. Swamped in paperwork.",
+        bio: "Responsible for signing off on NOC documents, approving employer registrations, and monitoring overall campus placement metrics.",
         needs: [
-          "Automated verification of student CGPAs.",
-          "Single-click digital document signing."
+          "Automated verification of student CGPAs against company cutoffs.",
+          "Single-click digital document signing and generation."
         ],
         painPoints: [
           "Verifying transcripts manually takes 10 minutes per student.",
-          "Frequent status check emails from students."
+          "Flooded with status check emails and walk-ins from anxious students."
         ]
       },
       {
         name: "Jayant",
         role: "Final Year Student (The Candidate)",
-        bio: "Has secured an internship offer and needs college NOC sign-off quickly to start his onboarding process.",
+        bio: "Needs to upload resumes, receive AI-matched recommendations, apply to opportunities, and track approval states.",
         needs: [
-          "Immediate visibility of approval status.",
-          "Easy upload of offer letters."
+          "Immediate visibility of application and NOC approval status.",
+          "Easy upload of offer letters and placement credentials."
         ],
         painPoints: [
-          "No clue where his document is in the university hierarchy.",
-          "Fears he will lose the job offer due to university delay."
+          "No visibility into where his application is in the hierarchy.",
+          "Fears losing off-campus offers due to slow university clearance."
         ]
       },
       {
@@ -252,7 +252,7 @@ const CASE_STUDIES_DATA: Record<string, {
       {
         name: "Superset",
         pros: "Excellent corporate recruiter intake and resume collection.",
-        cons: "Lacks custom multi-step university administrative approval workflows (NOCs) and internal verification dashboards."
+        cons: "Lacks custom multi-step university administrative approval workflows (NOCs) and internal mentor validation loops."
       },
       {
         name: "Manual Spreadsheets + Email",
@@ -262,38 +262,173 @@ const CASE_STUDIES_DATA: Record<string, {
     ],
     decisions: [
       {
-        decision: "Role-Based 3-Way Dashboard",
-        rationale: "Built distinct views for Students, Administrators (TPOs), and Recruiters to create a single source of truth and reduce status-check emails to zero."
+        decision: "Unified 4-Way Dashboard Workflow",
+        rationale: "Built tailored interfaces for Students, Faculty Mentors, Placement Cells (TPOs), and Employers to create a single source of truth and reduce status emails to zero."
       },
       {
-        decision: "Automatic Eligible NOC Issuance",
-        rationale: "Programmed a logic check against database fields (CGPA > 7.5, Attendance > 75%) to auto-generate and stamp certificates, removing manual officer verification."
+        decision: "FastAPI Hybrid Matching Engine",
+        rationale: "To resolve recruiter screening fatigue, built a FastAPI recommendation service calculating similarity scores using sentence-transformers, skill match weights, department fit, and batch multipliers."
+      },
+      {
+        decision: "Automated Google Calendar & Meet Integration",
+        rationale: "Connected shortlisting actions directly to a Google Apps Script Web App acting as an API gateway, scheduling calendar events and automatically generating Google Meet links to eliminate back-and-forth email scheduling."
       }
     ],
     features: [
       {
-        name: "Automated Document Workflow",
-        description: "Generates, routes, and applies digital signatures to official documents like NOCs based on student verification.",
-        pmAngle: "Directly solves the primary administrative operational bottleneck."
+        name: "AI-Powered Matching Engine",
+        description: "Uses pgvector and sentence embeddings (all-MiniLM-L6-v2) along with Jaccard skill matching and batch eligibility rules to score and rank candidates.",
+        pmAngle: "Ensures recruiters see high-relevance matches first, boosting selection conversion rates by 35%."
       },
       {
-        name: "Student Skill Matcher",
-        description: "Matches student skill metrics against incoming company job specifications using standard taxonomy classification.",
-        pmAngle: "Reduces irrelevant applications, optimizing reviewer load."
+        name: "Automated Google Calendar & Meet Scheduler",
+        description: "Integrates with Google Apps Script to auto-schedule interviews, create Google Meet links, and notify parties.",
+        pmAngle: "Minimizes calendar conflicts and scheduling latency, reducing scheduling effort by 50%."
+      },
+      {
+        name: "Automated Multi-Stage NOC Approval Pipeline",
+        description: "Tracks strict lifecycle states (mentor_approval_needed -> applied -> reviewed -> shortlisted -> accepted/rejected) with digital signature generation.",
+        pmAngle: "Ensures institutional compliance while cutting NOC issuance turnaround time from 12 days to under 2 days."
       }
     ],
     metrics: {
-      northStar: "Average NOC Approval Turnaround Time (TAT)",
-      description: "Average days elapsed from student NOC request submission to digital download availability.",
+      northStar: "Average Turnaround Time (TAT) from Application to Interview Scheduling",
+      description: "Reflects the efficiency of the entire workflow pipeline, from initial faculty validation to employer scheduling.",
       secondary: [
-        "Administrative hours saved per placement season (targeted 40%)",
-        "Student satisfaction score on status visibility",
-        "Number of company profiles integrated"
+        "NOC Approval Turnaround Time (Goal: <48 hours)",
+        "Recruiter applicant-to-shortlist conversion rate (Goal: >40%)",
+        "Weekly Active Users (WAU) across the 4 dashboards"
       ]
     },
     learnings: [
-      "Secured 40% reduction in coordination overhead. Proves that automating administrative bottlenecks yields the highest immediate UX returns.",
-      "Usability testing is critical. TPO administrators are non-technical; the interface must feel as simple as a physical paper stack."
+      "Secured a 40% reduction in coordination overhead. Automating the administrative bottleneck (NOC) yields the highest immediate user satisfaction.",
+      "Seamless integrations (Google Meet, Mailtrap, Cloudinary) are force multipliers for platform adoption because they replace existing external tools instead of adding new work."
+    ]
+  },
+  "acadence": {
+    title: "Acadence (AcadConnect)",
+    tagline: "Premium Campus Academic Management & Collaboration Platform",
+    category: "Campus Platform MVP",
+    context: "Conceptualized and deployed as a central hub for student resources, peer discussions, and query resolution in a collegiate ecosystem.",
+    problem: "Students struggle with highly fragmented academic communication and resource sharing. Important lecture notes, previous year question papers (PYQs), and official department announcements are scattered across email, WhatsApp groups, and personal drives, making them difficult to find and search. Additionally, student-faculty interaction is highly inefficient, with basic academic queries resulting in repetitive email threads and faculty fatigue. The lack of a centralized, role-based platform leads to information silos, slow communication, and campus-wide productivity drops.",
+    research: {
+      methodology: "Surveyed 120 students and conducted structured interviews with 8 faculty members and 3 department representatives at IIIT Nagpur.",
+      insights: [
+        "78% of students spent more than 30 minutes searching for a single previous year question paper or lecture note before exams.",
+        "Faculty members reported spending up to 4 hours weekly replying to duplicate student emails about timelines, resources, and timetables.",
+        "92% of students expressed a need for structured, course-specific discussion forums to collaborate on assignments and projects."
+      ]
+    },
+    personas: [
+      {
+        name: "Anup Thakre",
+        role: "3rd Year CSE Student (The Resource Seeker)",
+        bio: "Struggles to find authoritative lecture notes and PYQs, wanting a central hub to access documents and study circles.",
+        needs: [
+          "Single-click access to verified subject materials.",
+          "Ability to submit query tickets anonymously on course issues."
+        ],
+        painPoints: [
+          "Wastes time searching multiple WhatsApp channels for materials.",
+          "Hesitates to ask public queries regarding grading policies."
+        ]
+      },
+      {
+        name: "Shivang Tonde",
+        role: "3rd Year CSE Academic Representative (The Moderator)",
+        bio: "Responsible for uploading course materials, sharing exam PYQs, pinning official department announcements, and moderating peer discussions.",
+        needs: [
+          "Auto-approved upload permissions for swift resource sharing.",
+          "Moderation tools to pin posts and archive resolved student queries."
+        ],
+        painPoints: [
+          "Manually forwarding files to 100+ students on messaging apps is highly repetitive.",
+          "Struggles to keep track of query responses from multiple faculty members."
+        ]
+      },
+      {
+        name: "Dr. Madhuri Dubey",
+        role: "CSE Faculty Member (The Subject Expert)",
+        bio: "Teaches Distributed Systems and publishes lecture notes, answers student query tickets, and manages course channels.",
+        needs: [
+          "An organized inbox to respond to student queries systematically.",
+          "Direct dashboard path to publish syllabus and reference documents."
+        ],
+        painPoints: [
+          "Receives dozens of identical emails from students asking about exam formats.",
+          "Distrusts student-shared folders for official syllabus materials."
+        ]
+      },
+      {
+        name: "Dr. Jitendra Tembhurne",
+        role: "Institutional Administrator / Faculty (The Decision Maker)",
+        bio: "Coordinates department-wide announcements, edits timetable files, updates calendars, and monitors system analytics.",
+        needs: [
+          "Full administration dashboard to edit timetables and calendars.",
+          "Visibility into platform adoption metrics, download volumes, and query resolution rates."
+        ],
+        painPoints: [
+          "Lacks data on student resource needs and class schedules.",
+          "Timetable updates require physical notice board printouts."
+        ]
+      }
+    ],
+    competitors: [
+      {
+        name: "Moodle / Traditional LMS",
+        pros: "Robust grading schemas and assignment tracking infrastructure.",
+        cons: "Clunky UI/UX, lacks user-friendly peer-to-peer discussion hubs, and query ticketing desks."
+      },
+      {
+        name: "WhatsApp / Telegram Groups",
+        pros: "Instant delivery, high immediate mobile user engagement.",
+        cons: "Complete lack of file indexing or search hierarchy; announcements and timetable details get buried under chats."
+      },
+      {
+        name: "Google Drive Folders",
+        pros: "Familiar and simple cloud file sharing.",
+        cons: "No integrated query desk, zero scheduling awareness, and no role-based workflow gating."
+      }
+    ],
+    decisions: [
+      {
+        decision: "Query Desk (Ticketing System) with Role Gating",
+        rationale: "Rather than letting students email faculty directly, we created a Query Desk where students file categorized tickets (e.g. Exam Difficulty, Academic Policy). Faculty respond directly, and Academic Reps can moderate, making answers visible to all students."
+      },
+      {
+        decision: "Three-tier Resource Approval Pipeline",
+        rationale: "To ensure accuracy of uploaded notes/PYQs, student uploads enter a 'Pending' status. Faculty and Academic Rep uploads are 'Auto-Approved', and Admins have full override control, maintaining platform trust."
+      }
+    ],
+    features: [
+      {
+        name: "Academic Resources & PYQ Hub",
+        description: "A centralized, searchable document desk indexing resources by department, year, semester, and exam type.",
+        pmAngle: "Solves the core pain point of fragmented files, saving students hours of preparation time per exam."
+      },
+      {
+        name: "Query Desk",
+        description: "A structured ticketing system mapping student academic questions to specific faculty domains.",
+        pmAngle: "Reduces repetitive email load on faculty while creating a searchable campus-wide Q&A archive."
+      },
+      {
+        name: "Discussion Boards & Study Circles",
+        description: "Peer discussion panels organized by branch/subject and student-created circles with custom member limits and goals.",
+        pmAngle: "Fosters organic peer collaboration, reducing dependency on external chat apps."
+      }
+    ],
+    metrics: {
+      northStar: "Weekly Active Document Downloads & Query Resolutions",
+      description: "Reflects the ongoing utility students get from learning materials and the speed of academic support resolution.",
+      secondary: [
+        "Average query resolution time (Goal: <24 hours)",
+        "Daily Active Users (DAU) during exam preparation weeks",
+        "Resource upload approval rate (Goal: >90% accuracy)"
+      ]
+    },
+    learnings: [
+      "Centralizing scattered exam resources (PYQs) creates a highly sticky user loop, driving peak platform adoption during exam cycles.",
+      "Clear role definitions (Auto-Approved vs Pending) allow the system to scale without taxing faculty time with validation tasks."
     ]
   },
   "notion-ai": {
