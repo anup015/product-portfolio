@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { 
-  ArrowUpRight, 
-  ExternalLink, 
-  FileText, 
-  Mail, 
-  Menu, 
+import {
+  ArrowUpRight,
+  ExternalLink,
+  FileText,
+  Mail,
+  Menu,
   Phone,
-  X 
+  X
 } from "lucide-react";
 
 export default function Home() {
@@ -44,8 +44,8 @@ export default function Home() {
 
           {/* Desktop Socials */}
           <div className="hidden md:flex items-center gap-4">
-            <a 
-              href="mailto:anupthakre.works@gmail.com" 
+            <a
+              href="mailto:anupthakre.works@gmail.com"
               className="text-[#03045E] hover:opacity-75"
               aria-label="Email"
             >
@@ -54,9 +54,9 @@ export default function Home() {
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
             </a>
-            <a 
-              href="https://github.com/anup015" 
-              target="_blank" 
+            <a
+              href="https://github.com/anup015"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-[#03045E] hover:opacity-75"
               aria-label="GitHub"
@@ -66,9 +66,9 @@ export default function Home() {
                 <path d="M9 18c-4.51 2-5-2-7-2" />
               </svg>
             </a>
-            <a 
-              href="https://linkedin.com/in/anup-thakre/" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/anup-thakre/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-[#03045E] hover:opacity-75"
               aria-label="LinkedIn"
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
 
           {/* Mobile Nav Button */}
-          <button 
+          <button
             className="flex md:hidden items-center justify-center p-2 text-[#03045E]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -110,28 +110,28 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="py-12 md:py-24 bg-[#FDFBE2]">
         <div className="mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Text Column */}
           <div className="md:col-span-7 flex flex-col gap-4">
             <span className="text-lg font-bold text-[#03045E]">Hello, I'm Anup,</span>
-            
+
             <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tight text-[#03045E] leading-[0.9] flex flex-col">
               <span>Product</span>
               <span>Builder</span>
             </h1>
-            
+
             <span className="text-lg font-bold text-[#03045E] mt-2">based in Nagpur.</span>
-            
+
             <div className="mt-6 flex flex-wrap gap-4">
-              <a 
-                href="/resume.pdf"
+              <a
+                href="/Anup%20Thakre%20-%20Product.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-8 text-sm font-bold text-[#03045E] hover:bg-[#ebd96e] transition-colors shadow-[3.5px_3.5px_0px_0px_#03045E] cursor-pointer"
               >
                 View Resume
               </a>
-              <button 
+              <button
                 onClick={() => scrollToSection("projects")}
                 className="inline-flex h-11 items-center justify-center rounded-sm border border-[#03045E] bg-transparent px-8 text-sm font-bold text-[#03045E] hover:bg-[#03045E]/5 transition-colors cursor-pointer"
               >
@@ -139,7 +139,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-          
+
           {/* Right Circular Photo Column */}
           <div className="md:col-span-5 flex justify-center md:justify-end">
             <div className="relative">
@@ -148,20 +148,20 @@ export default function Home() {
                 <span className="text-3xl font-light font-sans leading-none">+</span>
                 <span className="text-xl font-light font-sans leading-none -mt-2 ml-4">+</span>
               </div>
-              
+
               {/* Background offset circle outline */}
               <div className="absolute top-2 -left-4 w-64 h-64 md:w-80 md:h-80 rounded-full border border-[#4A5D11] z-0"></div>
 
               {/* Circular Border and Image */}
               <div className="relative z-10 h-64 w-64 md:h-80 md:w-80 rounded-full border border-[#03045E] overflow-hidden bg-[#FAF9D8]">
                 {/* User Portrait Photo */}
-                <img 
-                  src="/my-photo.jpeg" 
-                  alt="Anup Thakre Portrait" 
+                <img
+                  src="/my-photo.jpeg"
+                  alt="Anup Thakre Portrait"
                   className="w-full h-full object-cover object-[center_6%]"
                 />
               </div>
-              
+
               {/* Slashes decorations at bottom left */}
               <div className="absolute -bottom-2 -left-8 text-2xl font-bold font-mono tracking-tighter text-[#4A5D11] deco-slashes">
                 /////
@@ -178,7 +178,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="flex flex-col gap-2">
             <h2 className="display-header display-header-about">about.</h2>
-            
+
             <div className="max-w-3xl font-serif text-lg md:text-xl text-[#03045E]/90 leading-relaxed space-y-6 mt-6 tracking-normal">
               <p>
                 I am a Computer Science student at <strong className="font-bold text-[#03045E]">IIIT Nagpur</strong> specializing in <strong className="font-bold text-[#03045E]">Human Computer Interaction (HCI)</strong>. My background centers on bridging high-fidelity code construction with human-centered product strategy, RAG-backed systems, and stakeholder management.
@@ -297,7 +297,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="display-header display-header-product">product thinking.</h2>
           <p className="text-[#5C6274] text-sm md:text-base mt-6">Core mental models and execution approaches I bring to building software.</p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             <div className="border border-[#03045E] bg-white/20 p-6 shadow-[2px_2px_0px_0px_#03045E]">
               <h3 className="font-bold text-[#03045E] text-base">User Research</h3>
@@ -351,17 +351,17 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="display-header display-header-work">work.</h2>
           <p className="text-[#5C6274] text-sm md:text-base mt-2">A record of digital applications and operational systems designed from scratch.</p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-12">
-            
+
             {/* Project 1: SAKSHAM */}
             <div className="flex flex-col border border-[#03045E] bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_#03045E] hover:shadow-[6px_6px_0px_0px_#03045E] transition-all rounded-sm gap-5 justify-between">
               <div className="flex flex-col gap-4">
                 {/* Deployed Unsplash Image for SAKSHAM */}
                 <div className="aspect-[16/10] w-full border border-[#03045E] overflow-hidden relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" 
-                    alt="SAKSHAM Workflow UI" 
+                  <img
+                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
+                    alt="SAKSHAM Workflow UI"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2 left-2 text-[9px] uppercase font-mono tracking-widest text-[#03045E] bg-[#F5E88F] px-2.5 py-1 border border-[#03045E] font-bold">
@@ -372,7 +372,7 @@ export default function Home() {
                 <div className="flex flex-col gap-1">
                   <span className="text-xs font-bold font-mono text-[#4A5D11]">SIH 2025 National Winner</span>
                   <h3 className="text-2xl font-black text-[#03045E]">SAKSHAM -- Internship Portal</h3>
-                  
+
                   <div className="flex flex-wrap gap-2 my-2">
                     <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">PRD</span>
                     <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">RBAC</span>
@@ -388,16 +388,16 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#03045E]/10">
-                <Link 
-                  href="/case-studies/saksham" 
+                <Link
+                  href="/case-studies/saksham"
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-white px-4 text-xs font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Read Case Study ↗
                 </Link>
-                <a 
-                  href="https://sih25-one.vercel.app/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://sih25-one.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-4 text-xs font-bold text-[#03045E] hover:bg-[#ebd96e] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Live Link ↗
@@ -410,9 +410,9 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 {/* Deployed Unsplash Image for Acadence */}
                 <div className="aspect-[16/10] w-full border border-[#03045E] overflow-hidden relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" 
-                    alt="Acadence Study Hub UI" 
+                  <img
+                    src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80"
+                    alt="Acadence Study Hub UI"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2 left-2 text-[9px] uppercase font-mono tracking-widest text-[#03045E] bg-[#F5E88F] px-2.5 py-1 border border-[#03045E] font-bold">
@@ -439,16 +439,16 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#03045E]/10">
-                <Link 
-                  href="/case-studies/acadence" 
+                <Link
+                  href="/case-studies/acadence"
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-white px-4 text-xs font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Read Case Study ↗
                 </Link>
-                <a 
-                  href="https://acadence-one.vercel.app/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://acadence-one.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-4 text-xs font-bold text-[#03045E] hover:bg-[#ebd96e] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Live Link ↗
@@ -461,9 +461,9 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 {/* Deployed Unsplash Image for AskYourSenior */}
                 <div className="aspect-[16/10] w-full border border-[#03045E] overflow-hidden relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" 
-                    alt="AskYourSenior Network UI" 
+                  <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+                    alt="AskYourSenior Network UI"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2 left-2 text-[9px] uppercase font-mono tracking-widest text-[#03045E] bg-[#F5E88F] px-2.5 py-1 border border-[#03045E] font-bold">
@@ -488,8 +488,8 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#03045E]/10">
-                <Link 
-                  href="/case-studies/ask-your-senior" 
+                <Link
+                  href="/case-studies/ask-your-senior"
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-4 text-xs font-bold text-[#03045E] hover:bg-[#ebd96e] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Read Case Study ↗
@@ -502,9 +502,9 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 {/* Deployed Unsplash Image for AR/VR */}
                 <div className="aspect-[16/10] w-full border border-[#03045E] overflow-hidden relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80" 
-                    alt="AR/VR Physics App UI" 
+                  <img
+                    src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80"
+                    alt="AR/VR Physics App UI"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2 left-2 text-[9px] uppercase font-mono tracking-widest text-[#03045E] bg-[#F5E88F] px-2.5 py-1 border border-[#03045E] font-bold">
@@ -531,10 +531,10 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#03045E]/10">
-                <a 
-                  href="https://shorturl.at/fqJFT" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://shorturl.at/fqJFT"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-4 text-xs font-bold text-[#03045E] hover:bg-[#ebd96e] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
                 >
                   Live Link ↗
@@ -553,7 +553,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="display-header display-header-work">case study.</h2>
           <p className="text-[#5C6274] text-sm md:text-base mt-6">Notion AI — 0 to 1 Launch (Product Scoping & Integration Case Study)</p>
-          
+
           <div className="mt-12 max-w-3xl">
             <div className="border border-[#03045E] bg-white p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-[4px_4px_0px_0px_#03045E] rounded-sm hover:shadow-[6px_6px_0px_0px_#03045E] transition-all">
               <div>
@@ -562,8 +562,8 @@ export default function Home() {
                   Strategic launch teardown examining Notion's native LLM feature scoping and integration model. Explores the \"opt-in vs on by default\" product bifurcation risk and metrics framework.
                 </p>
               </div>
-              <Link 
-                href="/case-studies/notion-ai" 
+              <Link
+                href="/case-studies/notion-ai"
                 className="shrink-0 inline-flex h-10 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-6 text-sm font-bold text-[#03045E] hover:bg-[#ebd96e] transition-colors shadow-[1.5px_1.5px_0px_0px_#03045E]"
               >
                 Read Case Study ↗
@@ -579,7 +579,7 @@ export default function Home() {
       <section id="skills" className="py-20 md:py-28 bg-[#FDFBE2]">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="display-header display-header-skills">skills.</h2>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
             {/* PM */}
             <div>
@@ -660,7 +660,7 @@ export default function Home() {
       <section id="achievements" className="py-20 md:py-28 bg-[#FDFBE2]">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="display-header display-header-about">achievements.</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl">
             <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
               <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
@@ -711,9 +711,9 @@ export default function Home() {
       <section id="contact" className="py-20 md:py-28 bg-[#FDFBE2]">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="display-header display-header-contact">contact.</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mt-8 items-center">
-            
+
             {/* Left Stationery SVG Mockup */}
             <div className="md:col-span-5 flex justify-center">
               <div className="w-full max-w-[280px] aspect-[4/3] border border-[#03045E] bg-white p-4 shadow-[3px_3px_0px_0px_#03045E] relative">
@@ -735,41 +735,41 @@ export default function Home() {
               <p className="text-[#03045E] text-base md:text-lg font-medium leading-relaxed max-w-md">
                 Interested in discussing product, AI, startups, or opportunities? Let's connect.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mt-2">
-                <a 
-                  href="mailto:anupthakre.works@gmail.com" 
+                <a
+                  href="mailto:anupthakre.works@gmail.com"
                   className="inline-flex h-12 items-center gap-3 rounded-sm border border-[#03045E] bg-white px-6 text-sm font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[2px_2px_0px_0px_#03045E]"
                   title="Send Email"
                 >
                   <span className="text-lg">📧</span>
                   <span>Email</span>
                 </a>
-                
-                <a 
-                  href="https://linkedin.com/in/anup-thakre/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+
+                <a
+                  href="https://linkedin.com/in/anup-thakre/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-12 items-center gap-3 rounded-sm border border-[#03045E] bg-white px-6 text-sm font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[2px_2px_0px_0px_#03045E]"
                   title="LinkedIn Profile"
                 >
                   <span className="text-lg">💼</span>
                   <span>LinkedIn</span>
                 </a>
-                
-                <a 
-                  href="https://github.com/anup015" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+
+                <a
+                  href="https://github.com/anup015"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-12 items-center gap-3 rounded-sm border border-[#03045E] bg-white px-6 text-sm font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[2px_2px_0px_0px_#03045E]"
                   title="GitHub Profile"
                 >
                   <span className="text-lg">💻</span>
                   <span>GitHub</span>
                 </a>
-                
-                <a 
-                  href="tel:+918999572681" 
+
+                <a
+                  href="tel:+918999572681"
                   className="inline-flex h-12 items-center gap-3 rounded-sm border border-[#03045E] bg-white px-6 text-sm font-bold text-[#03045E] hover:bg-[#F5E88F] transition-all shadow-[2px_2px_0px_0px_#03045E]"
                   title="Call Me"
                 >
@@ -777,7 +777,7 @@ export default function Home() {
                   <span>Call Me</span>
                 </a>
               </div>
-              
+
               <div className="text-xs text-[#5C6274] mt-6">
                 <span>© {new Date().getFullYear()} Anup Thakre. Styled in Figma template.</span>
               </div>
