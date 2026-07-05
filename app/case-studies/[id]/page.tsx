@@ -105,23 +105,23 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     userStories: [
       {
         role: "Junior",
-        story: "I want to filter the alumni directory by target company, role, batch, and skills",
-        benefit: "I can quickly discover the right senior to contact for a warm referral or mentorship."
+        story: "filter our campus alumni directory by specific companies and departments",
+        benefit: "I can identify and connect with the right seniors best positioned to help me, instead of sending cold messages on LinkedIn."
       },
       {
         role: "Junior",
-        story: "I want to submit referral requests using a standardized template",
-        benefit: "I can provide my CV, job code, and introductory pitch clearly without writing long unstructured drafts."
+        story: "request a referral using structured, standard templates",
+        benefit: "I don't have to write a custom, stressful pitch letter and can upload my resume and job details in one step."
       },
       {
         role: "Alumnus",
-        story: "I want to view pre-screened referral requests with clean resume templates",
-        benefit: "I can quickly evaluate candidates and submit referrals with minimal time and effort."
+        story: "receive pre-screened referral requests with student profile summaries",
+        benefit: "I can submit student referrals in under 5 minutes without dealing with unstructured emails and inbox clutter."
       },
       {
         role: "Alumnus",
-        story: "I want common preparation and resource questions routed to a centralized vault or future chatbot",
-        benefit: "I can save my bandwidth for advanced, high-value career consultations."
+        story: "have basic preparation questions (like 'how to prepare for DBMS') routed to a central archive or chatbot",
+        benefit: "I can reserve my limited free time for advanced, high-value career discussions."
       }
     ],
     featurePrioritization: [
@@ -228,27 +228,27 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     userStories: [
       {
         role: "Student",
-        story: "I want to create a verified digital profile and upload my resume once",
+        story: "create a verified digital profile and upload my resume once",
         benefit: "I don't have to repeatedly enter application details and can apply with a single click."
       },
       {
         role: "Student",
-        story: "I want AI to recommend internships based on my skills and track my application states",
+        story: "receive AI-recommended internships based on my skills and track my application states",
         benefit: "I can discover relevant opportunities quickly and monitor my hiring progress."
       },
       {
         role: "Faculty Mentor",
-        story: "I want to review pending student applications and provide remarks",
+        story: "review pending student applications and provide remarks",
         benefit: "I can approve eligible candidates efficiently and guide students."
       },
       {
         role: "Placement Officer",
-        story: "I want to approve employer registrations and monitor placement dashboards",
+        story: "approve employer registrations and monitor placement dashboards",
         benefit: "I can oversee institutional performance and protect students from unverified employers."
       },
       {
         role: "Employer",
-        story: "I want AI to recommend candidate shortlists and auto-schedule interviews on Google Calendar & Meet",
+        story: "receive AI candidate recommendations and auto-schedule interviews on Google Calendar & Meet",
         benefit: "I can save time screening applicants and avoid back-and-forth scheduling."
       }
     ],
@@ -361,22 +361,22 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     userStories: [
       {
         role: "Student",
-        story: "I want to search and download lecture notes and PYQs by branch and semester",
+        story: "search and download lecture notes and PYQs by branch and semester from a single repository",
         benefit: "I can prepare for exams efficiently without relying on informal file sharing."
       },
       {
         role: "Student",
-        story: "I want to submit academic queries to a structured Query Desk and track their resolution status",
+        story: "submit academic queries to a structured Query Desk and track their resolution status",
         benefit: "I can get official answers transparently from faculty without sending formal emails."
       },
       {
         role: "Faculty",
-        story: "I want to publish materials and notices on a dedicated Course Connect channel",
+        story: "publish materials and notices on a dedicated Course Connect channel",
         benefit: "I can ensure students get authoritative resources and reduce my repetitive email inbox load."
       },
       {
         role: "Administrator",
-        story: "I want to update timetable entries on a dynamic dashboard",
+        story: "update timetable entries on a dynamic dashboard",
         benefit: "I can propagate schedule changes to all student viewports instantly."
       }
     ],
@@ -461,17 +461,17 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     userStories: [
       {
         role: "Writer",
-        story: "I want to activate AI using a simple keyboard command (Space on an empty block or /ai)",
+        story: "activate AI using a simple keyboard command (Space on an empty block or /ai)",
         benefit: "I can trigger AI features instantly without breaking my writing posture or taking my hands off the keyboard."
       },
       {
         role: "Writer",
-        story: "I want to highlight text and select formatting presets like 'Summarize' or 'Professional Tone'",
+        story: "highlight text and select formatting presets like 'Summarize' or 'Professional Tone'",
         benefit: "I can optimize my document styling instantly without writing custom prompts."
       },
       {
         role: "PM",
-        story: "I want AI to scan meeting blocks and extract an actionable check-list",
+        story: "have AI scan meeting blocks and extract an actionable checklist",
         benefit: "I can generate my tasks list instantly and reduce follow-up overhead."
       }
     ],

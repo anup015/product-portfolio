@@ -37,6 +37,7 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-8">
             <button onClick={() => scrollToSection("hero")} className="text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity cursor-pointer">Home</button>
             <button onClick={() => scrollToSection("about")} className="text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity cursor-pointer">About</button>
+            <button onClick={() => scrollToSection("achievements")} className="text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity cursor-pointer">Achievements</button>
             <button onClick={() => scrollToSection("product-thinking")} className="text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity cursor-pointer">Product Thinking</button>
             <button onClick={() => scrollToSection("projects")} className="text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity cursor-pointer">Work</button>
             <button onClick={() => scrollToSection("contact")} className="text-sm font-bold text-[#03045E] hover:opacity-75 transition-opacity cursor-pointer">Contact</button>
@@ -95,6 +96,7 @@ export default function Home() {
           <div className="md:hidden border-b border-[#03045E] bg-[#FDFBE2] px-6 py-4 flex flex-col gap-4">
             <button onClick={() => scrollToSection("hero")} className="text-left text-sm font-bold text-[#03045E] py-1">Home</button>
             <button onClick={() => scrollToSection("about")} className="text-left text-sm font-bold text-[#03045E] py-1">About</button>
+            <button onClick={() => scrollToSection("achievements")} className="text-left text-sm font-bold text-[#03045E] py-1">Achievements</button>
             <button onClick={() => scrollToSection("product-thinking")} className="text-left text-sm font-bold text-[#03045E] py-1">Product Thinking</button>
             <button onClick={() => scrollToSection("projects")} className="text-left text-sm font-bold text-[#03045E] py-1">Work</button>
             <button onClick={() => scrollToSection("contact")} className="text-left text-sm font-bold text-[#03045E] py-1">Contact</button>
@@ -246,6 +248,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <hr className="border-[#03045E]/10 max-w-5xl mx-auto" />
 
       {/* Achievements Section */}
       <section id="achievements" className="py-20 md:py-28 bg-[#FDFBE2]">
