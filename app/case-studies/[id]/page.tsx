@@ -165,73 +165,106 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
   },
   "saksham": {
     title: "SAKSHAM",
-    tagline: "National Internship & Placement Portal",
+    tagline: "National Internship & Placement Mission Portal",
     category: "SIH 2025 National Winner",
     context: "Developed as a full-stack, enterprise-grade portal to automate and secure the end-to-end internship/placement lifecycle and issue No Objection Certificates (NOCs) across Indian higher education institutions.",
-    problemStatement: "The university placement ecosystem is highly fragmented. Students, faculty mentors, Training & Placement Officers (TPOs), and corporate recruiters operate in silos. This results in manual verification of student profiles (CGPA, skills, attendance), tedious paper-based signatures for No Objection Certificates (NOCs), high coordination delays (often up to 12 working days), low match rates between job requirements and student qualifications, and high drop-off in corporate engagement due to manual scheduling friction.",
+    problemStatement: "India has over 1,000+ higher education institutions, each following different processes for internships and campus placements. The current ecosystem is highly fragmented, with communication spread across emails, WhatsApp groups, spreadsheets, ERP systems, and physical approvals. Students often miss opportunities because they are unaware of openings or struggle to identify jobs matching their skills. Faculty mentors manually verify eligibility and approve applications, resulting in delays. Placement cells spend significant effort managing company onboarding, student records, and recruitment drives, while employers receive hundreds of applications without an efficient mechanism to identify suitable candidates. These disconnected workflows create inefficiencies across every stakeholder involved in campus recruitment. The absence of a centralized, intelligent platform leads to poor visibility of internship opportunities, manual verification and approval processes, low-quality employer-student matching, delayed communication, lack of analytics for placement cells, and poor student experience during placements. SAKSHAM was built to solve these challenges by creating a unified AI-powered placement ecosystem connecting Students, Faculty Mentors, Placement Cells, and Employers.",
     goals: [
-      "Automate the validation and secure issuance of student No Objection Certificates (NOCs).",
-      "Remove administrative bottlenecks by digitizing profile verification (CGPA, attendance).",
-      "Increase opportunities relevance through intelligent recruitment matching algorithms.",
-      "Simplify interview scheduling loops between placement cells, candidates, and recruiters."
+      "Centralize and digitize the complete internship and placement lifecycle on a single unified platform.",
+      "Reduce manual administrative workload and paper-based signature delays across institutions.",
+      "Improve the quality of employer-student matching using intelligent candidate recommendation algorithms.",
+      "Standardize internship management workflows and increase successful internship conversions.",
+      "Provide actionable analytics dashboards for placement cells to monitor institutional performance."
     ],
     targetUsers: [
       {
-        role: "TPO Administrators & Faculty Mentors",
-        description: "Responsible for signing NOCs, verifying academic records, and managing placement drives."
+        role: "Students",
+        description: "Looking for internships and placement opportunities, tracking application stages, scheduling interviews, and building profiles."
       },
       {
-        role: "Candidates & NOC Applicants",
-        description: "Students seeking transparent status tracking for internship applications and administrative clearances."
+        role: "Faculty Mentors",
+        description: "Responsible for reviewing student eligibility, approving requests, tracking progress, and reducing manual paperwork."
       },
       {
-        role: "Corporate Recruiters",
-        description: "Industry hiring partners seeking pre-screened candidate lists and smooth interview slots coordination."
+        role: "Placement Cell",
+        description: "Institution administrators managing company approvals, monitoring drives, inspecting analytics, and managing relationships."
+      },
+      {
+        role: "Employers",
+        description: "Companies posting opportunities, screening candidates, scheduling interviews, tracking pipelines, and issuing certificates."
       }
     ],
     painPoints: [
       {
-        role: "TPOs & Faculty",
-        points: [
-          "Verifying student transcripts manually takes 10 minutes per student.",
-          "Chasing coordinators for credentials verification logs, causing delays.",
-          "Flooded with status check emails and physical walk-ins from anxious students."
-        ]
-      },
-      {
         role: "Students",
         points: [
-          "NOC manual turnaround time (TAT) averages 12 working days, risking missing recruiter compliance deadlines.",
-          "No visibility into where their application is in the clearance hierarchy.",
-          "Standing in lines outside administrative blocks during exam schedules."
+          "Opportunities scattered across multiple platforms with manual resume submissions.",
+          "No visibility into application status or interview scheduling updates.",
+          "Repeated profile creation and CV submissions for different companies."
         ]
       },
       {
-        role: "Recruiters",
+        role: "Faculty",
         points: [
-          "65% of applicants do not meet basic eligibility criteria, causing screening fatigue.",
-          "Manual tracking of candidate interview availability across spreadsheets is prone to scheduling conflicts."
+          "Manual approvals and large volumes of applications to review under short timelines.",
+          "Lack of centralized student records and difficulty tracking mentee placement progress."
+        ]
+      },
+      {
+        role: "Placement Cell",
+        points: [
+          "Managing company drives manually through complex spreadsheets and folders.",
+          "High administrative workload and difficult cross-role coordination without dashboard analytics."
+        ]
+      },
+      {
+        role: "Employers",
+        points: [
+          "High screening fatigue from receiving large volumes of irrelevant candidate applications.",
+          "Time-consuming candidate screening and manual interview scheduling loops."
         ]
       }
     ],
     userStories: [
       {
         role: "Student",
-        story: "I want to upload my internship offer letter and track the NOC approval states online",
-        benefit: "I can ensure my application receives clearance in time to meet my employer's compliance deadline."
+        story: "I want to create a verified digital profile and upload my resume once",
+        benefit: "I don't have to repeatedly enter application details and can apply with a single click."
       },
       {
-        role: "TPO",
-        story: "I want student CGPAs and records automatically cross-referenced against company cutoffs",
-        benefit: "I can approve candidate eligibility lists in bulk with a single click."
+        role: "Student",
+        story: "I want AI to recommend internships based on my skills and track my application states",
+        benefit: "I can discover relevant opportunities quickly and monitor my hiring progress."
       },
       {
-        role: "Recruiter",
-        story: "I want candidate shortlisting to auto-schedule interviews on Google Calendar & Meet",
-        benefit: "I can eliminate back-and-forth email scheduling and eliminate calendar conflicts."
+        role: "Faculty Mentor",
+        story: "I want to review pending student applications and provide remarks",
+        benefit: "I can approve eligible candidates efficiently and guide students."
+      },
+      {
+        role: "Placement Officer",
+        story: "I want to approve employer registrations and monitor placement dashboards",
+        benefit: "I can oversee institutional performance and protect students from unverified employers."
+      },
+      {
+        role: "Employer",
+        story: "I want AI to recommend candidate shortlists and auto-schedule interviews on Google Calendar & Meet",
+        benefit: "I can save time screening applicants and avoid back-and-forth scheduling."
       }
     ],
     featurePrioritization: [
+      {
+        feature: "Role-Based Authentication & Profiles",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
+      },
+      {
+        feature: "AI-Powered Hybrid Recommendation Engine",
+        impact: "High",
+        effort: "High",
+        priority: "High"
+      },
       {
         feature: "Automated Multi-Stage NOC Approval Pipeline",
         impact: "High",
@@ -239,36 +272,30 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
         priority: "High"
       },
       {
-        feature: "FastAPI Hybrid Matching Engine",
+        feature: "Google Calendar & Meet Scheduler Integration",
         impact: "High",
         effort: "Medium",
         priority: "High"
       },
       {
-        feature: "Google Calendar & Meet Scheduler (Apps Script)",
-        impact: "High",
+        feature: "Analytics & Placement Stats Dashboard",
+        impact: "Medium",
         effort: "Medium",
-        priority: "High"
-      },
-      {
-        feature: "Unified 4-Way Role-Based Dashboards",
-        impact: "High",
-        effort: "High",
         priority: "High"
       }
     ],
     successMetrics: {
       northStar: {
         name: "Average Turnaround Time (TAT) from Application to Interview",
-        description: "Tracks the absolute efficiency of the placement workflow pipeline, from initial candidate registration to final interview booking."
+        description: "Tracks the end-to-end efficiency of the recruitment funnel, including institutional approvals, matching, and final scheduling."
       },
       secondary: [
-        "NOC Approval Turnaround Time (Goal: cut from 12 days to <48 hours)",
-        "Recruiter conversion rate (shortlist-to-interview ratio) (Goal: >40%)",
-        "Weekly Active Users (WAU) across administrative dashboards"
+        "Application-to-interview and interview-to-offer conversion rates",
+        "Average NOC approval turnaround time (Goal: cut from 12 days to <48 hours)",
+        "Placement and internship conversion rates across graduating batches"
       ]
     },
-    conclusion: "SAKSHAM streamlines the institutional placement machinery. By automating profile validation and NOC workflows, the platform decreases scheduling latency and administrative overhead, ensuring university systems run at industry speed."
+    conclusion: "SAKSHAM re-imagines campus recruitment by uniting students, faculty, placement cells, and employers on a single intelligent platform. By integrating vector-similarity matching, automated NOC pipelines, dynamic calendars, and dashboard analytics, it eliminates administrative overhead and matches candidates with recruiters at scale."
   },
   "acadence": {
     title: "Acadence",
