@@ -247,44 +247,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact Highlights Stat Cards */}
-      <section className="py-12 bg-[#FDFBE2]">
+      {/* Achievements Section */}
+      <section id="achievements" className="py-20 md:py-28 bg-[#FDFBE2]">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            <div className="border border-[#03045E] bg-white/40 p-6 shadow-[3px_3px_0px_0px_#03045E]">
-              <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">SIH National Winner</span>
-              <span className="text-3xl font-black text-[#03045E] block mt-1">2025</span>
-              <p className="text-xs text-[#5C6274] mt-1">First prize at nationwide finals for SAKSHAM.</p>
+          <h2 className="display-header display-header-about">achievements.</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl">
+            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
+              <div className="space-y-1">
+                <h3 className="font-extrabold text-sm text-[#03045E]">Smart India Hackathon 2025 Winner</h3>
+                <p className="text-xs text-[#5C6274] leading-relaxed">
+                  National Winner by leading end-to-end product development, defining user-centric solutions, and delivering SAKSHAM internship portal.
+                </p>
+              </div>
             </div>
 
-            <div className="border border-[#03045E] bg-white/40 p-6 shadow-[3px_3px_0px_0px_#03045E]">
-              <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">National Finalist</span>
-              <span className="text-3xl font-black text-[#03045E] block mt-1">2024</span>
-              <p className="text-xs text-[#5C6274] mt-1">Advance placement in nationwide hackathon track.</p>
+            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
+              <div className="space-y-1">
+                <h3 className="font-extrabold text-sm text-[#03045E]">Smart India Hackathon 2024 Finalist</h3>
+                <p className="text-xs text-[#5C6274] leading-relaxed">
+                  National Finalist. Recognized for strong product thinking, problem structuring, and effective execution among top teams.
+                </p>
+              </div>
             </div>
 
-            <div className="border border-[#03045E] bg-white/40 p-6 shadow-[3px_3px_0px_0px_#03045E]">
-              <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">Case Study Standings</span>
-              <span className="text-3xl font-black text-[#03045E] block mt-1">West Zone</span>
-              <p className="text-xs text-[#5C6274] mt-1">Consecutive years Finalist (2025 and 2026).</p>
+            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
+              <div className="space-y-1">
+                <h3 className="font-extrabold text-sm text-[#03045E]">Nation Building Case Study 2026 West Zone Finalist</h3>
+                <p className="text-xs text-[#5C6274] leading-relaxed">
+                  Top 10 among 50,000+ participants by proposing local micro-mobility transit layouts.
+                </p>
+              </div>
             </div>
 
-            <div className="border border-[#03045E] bg-white/40 p-6 shadow-[3px_3px_0px_0px_#03045E]">
-              <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">University Standings</span>
-              <span className="text-3xl font-black text-[#03045E] block mt-1">8.90 CGPA</span>
-              <p className="text-xs text-[#5C6274] mt-1">Consistent academic records at IIIT Nagpur.</p>
-            </div>
-
-            <div className="border border-[#03045E] bg-white/40 p-6 shadow-[3px_3px_0px_0px_#03045E]">
-              <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">Projects Deployed</span>
-              <span className="text-3xl font-black text-[#03045E] block mt-1">3+ Live</span>
-              <p className="text-xs text-[#5C6274] mt-1">Active systems mapped to real-world user loops.</p>
-            </div>
-
-            <div className="border border-[#03045E] bg-white/40 p-6 shadow-[3px_3px_0px_0px_#03045E]">
-              <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">User Reach Deployed</span>
-              <span className="text-3xl font-black text-[#03045E] block mt-1">800+ Active</span>
-              <p className="text-xs text-[#5C6274] mt-1">Students and faculty users actively using tools.</p>
+            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
+              <div className="space-y-1">
+                <h3 className="font-extrabold text-sm text-[#03045E]">Nation Building Case Study 2025 West Zone Finalist</h3>
+                <p className="text-xs text-[#5C6274] leading-relaxed">
+                  Top 10 among 50,000+ participants by proposing multi-modal transit coordination frameworks.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -381,7 +387,7 @@ export default function Home() {
                 </div>
 
                 <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
-                  <li>Identified <strong className="text-[#03045E]">fragmented internship workflows</strong> as the core user pain point → defined product requirements and designed a unified application and approval system → reduced coordination effort by <strong className="text-[#03045E]">40%</strong> across <strong className="text-[#03045E]">500+ users</strong>.</li>
+                  <li>Identified <strong className="text-[#03045E]">fragmented internship workflows</strong> as the core user pain point → defined product requirements and designed a unified application and approval system → reduced coordination effort by <strong className="text-[#03045E]">40%</strong> across all university channels.</li>
                   <li>Mapped multi-role coordination challenges through user research → prioritized <strong className="text-[#03045E]">role-based access and structured workflows</strong> → enabled secure, scalable interactions across <strong className="text-[#03045E]">4 distinct user roles</strong> (Student, Mentor, TPO, Employer).</li>
                   <li>Diagnosed low opportunity-match relevance as a key drop-off driver → scoped and shipped an <strong className="text-[#03045E]">AI-powered FastAPI recommendation microservice</strong> → improved matching relevance and reduced search time by <strong className="text-[#03045E]">35%</strong>.</li>
                 </ul>
@@ -432,7 +438,7 @@ export default function Home() {
                 </div>
 
                 <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
-                  <li>Identified <strong className="text-[#03045E]">fragmented academic resources</strong> as the primary barrier to student productivity → defined MVP scope covering notes, PYQs, announcements, and collaboration → improved accessibility for <strong className="text-[#03045E]">300+ students</strong>.</li>
+                  <li>Identified <strong className="text-[#03045E]">fragmented academic resources</strong> as the primary barrier to student productivity → defined MVP scope covering notes, PYQs, announcements, and collaboration → improved resource accessibility and visibility.</li>
                   <li>Synthesized student feedback revealing inefficient workflows → prioritized and shipped <strong className="text-[#03045E]">query systems (Query Desk), study groups, and discussion spaces</strong> → increased collaboration efficiency by <strong className="text-[#03045E]">45%</strong>.</li>
                   <li>Mapped multi-role access as a trust requirement → designed role-based access control for <strong className="text-[#03045E]">4 key user roles</strong> (Students, Academic Reps, Faculty, Admins) → enabled secure resource approval pipelines.</li>
                 </ul>
@@ -482,9 +488,12 @@ export default function Home() {
                   </div>
                 </div>
 
-                <p className="text-sm text-[#5C6274] leading-relaxed">
-                  Students miss key referral loops, direct alumni mentorship opportunities, and structural support pathways due to highly fragmented chat channels. Mapped user responses and prioritised resume check points. AskYourSenior acts as an AI-powered college networking and referral ecosystem to lower networking barriers.
-                </p>
+                <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
+                  <li>Designed an AI-powered networking ecosystem to bridge career, referral, and mentorship gaps between juniors and industry-active alumni.</li>
+                  <li>Scoped and designed an <strong className="text-[#03045E]">AI Resume Screening Gatekeeper</strong> to evaluate resumes and pre-draft pitches, protecting alumni time and reducing application friction.</li>
+                  <li>Conceptualized a <strong className="text-[#03045E]">RAG-powered college knowledge chatbot</strong> to route common academic/administrative queries, mitigating senior advisor fatigue.</li>
+                  <li>Planned an <strong className="text-[#03045E]">opportunity recommendation engine</strong> to cross-reference scraped off-campus job openings with campus alumni directory connections.</li>
+                </ul>
               </div>
 
               <div className="flex flex-wrap gap-3 mt-4 pt-4 border-t border-[#03045E]/10">
@@ -524,9 +533,9 @@ export default function Home() {
                 </div>
 
                 <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
-                  <li>Diagnosed <strong className="text-[#03045E]">low engagement and poor navigation</strong> through usability analysis → redesigned user flows and layouts → reduced navigation friction by <strong className="text-[#03045E]">30%</strong>.</li>
-                  <li>Ran iterative design cycles using <strong className="text-[#03045E]">wireframes and high-fidelity prototypes</strong> → validated solutions early with stakeholders → reduced iteration cycles by <strong className="text-[#03045E]">25%</strong> and improved interaction clarity.</li>
-                  <li>Incorporated <strong className="text-[#03045E]">user feedback</strong> to refine journeys → improved navigation efficiency and increased user retention by <strong className="text-[#03045E]">20%</strong>.</li>
+                  <li>Established a responsive visual layout for an AR/VR physics application using Figma, curating custom typography, color harmony, and futuristic design tokens.</li>
+                  <li>Developed high-fidelity interactive prototypes to simulate dynamic user navigation, hover transitions, and responsive content scaling.</li>
+                  <li>Conducted comparative usability reviews on various wireframe layouts to refine component spacing, visual hierarchy, and CTA placement.</li>
                 </ul>
               </div>
 
@@ -654,56 +663,6 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="border-[#03045E]/10 max-w-5xl mx-auto" />
-
-      {/* Achievements Section */}
-      <section id="achievements" className="py-20 md:py-28 bg-[#FDFBE2]">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="display-header display-header-about">achievements.</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl">
-            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-sm text-[#03045E]">Smart India Hackathon 2025 Winner</h3>
-                <p className="text-xs text-[#5C6274] leading-relaxed">
-                  National Winner by leading end-to-end product development, defining user-centric solutions, and delivering SAKSHAM internship portal.
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-sm text-[#03045E]">Smart India Hackathon 2024 Finalist</h3>
-                <p className="text-xs text-[#5C6274] leading-relaxed">
-                  National Finalist. Recognized for strong product thinking, problem structuring, and effective execution among top teams.
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-sm text-[#03045E]">Nation Building Case Study 2026 West Zone Finalist</h3>
-                <p className="text-xs text-[#5C6274] leading-relaxed">
-                  Top 10 among 50,000+ participants by proposing local micro-mobility transit layouts.
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm flex gap-4 hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-              <span className="text-2xl shrink-0 text-[#4A5D11] font-bold">🏆</span>
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-sm text-[#03045E]">Nation Building Case Study 2025 West Zone Finalist</h3>
-                <p className="text-xs text-[#5C6274] leading-relaxed">
-                  Top 10 among 50,000+ participants by proposing multi-modal transit coordination frameworks.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <hr className="border-[#03045E]/10 max-w-5xl mx-auto" />
 
