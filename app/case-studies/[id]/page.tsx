@@ -34,9 +34,11 @@ interface UserStory {
 
 interface FeaturePriority {
   feature: string;
-  impact: "High" | "Medium" | "Low";
-  effort: "High" | "Medium" | "Low";
-  priority: "High" | "Medium" | "Low";
+  reach: number;       // Estimated users reached per quarter (e.g. 500)
+  impact: number;      // Impact score 0.25 | 0.5 | 1 | 2 | 3
+  confidence: number;  // Confidence % (e.g. 80)
+  effort: number;      // Person-weeks of work
+  riceScore: number;   // (Reach × Impact × Confidence%) / Effort
 }
 
 interface CaseStudy {
@@ -127,27 +129,35 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     featurePrioritization: [
       {
         feature: "Searchable Student & Alumni Directory",
-        impact: "High",
-        effort: "Medium",
-        priority: "High"
+        reach: 800,
+        impact: 2,
+        confidence: 90,
+        effort: 3,
+        riceScore: 480
       },
       {
         feature: "Structured Referral System & Templates",
-        impact: "High",
-        effort: "Medium",
-        priority: "High"
+        reach: 600,
+        impact: 3,
+        confidence: 85,
+        effort: 4,
+        riceScore: 383
       },
       {
-        feature: "Placement Knowledge Repository & Co. Intelligence",
-        impact: "High",
-        effort: "High",
-        priority: "High"
+        feature: "Placement Knowledge Repository",
+        reach: 900,
+        impact: 2,
+        confidence: 80,
+        effort: 6,
+        riceScore: 240
       },
       {
-        feature: "AI Roadmap (Mentor Match, Resume Guard, Chatbot)",
-        impact: "High",
-        effort: "High",
-        priority: "Medium"
+        feature: "AI Mentor Match & Resume Guard",
+        reach: 500,
+        impact: 3,
+        confidence: 60,
+        effort: 10,
+        riceScore: 90
       }
     ],
     successMetrics: {
@@ -255,33 +265,43 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     featurePrioritization: [
       {
         feature: "Role-Based Authentication & Profiles",
-        impact: "High",
-        effort: "Medium",
-        priority: "High"
+        reach: 2000,
+        impact: 3,
+        confidence: 95,
+        effort: 4,
+        riceScore: 1425
       },
       {
         feature: "AI-Powered Hybrid Recommendation Engine",
-        impact: "High",
-        effort: "High",
-        priority: "High"
+        reach: 1800,
+        impact: 3,
+        confidence: 75,
+        effort: 10,
+        riceScore: 405
       },
       {
         feature: "Automated Multi-Stage NOC Approval Pipeline",
-        impact: "High",
-        effort: "High",
-        priority: "High"
+        reach: 1500,
+        impact: 2,
+        confidence: 90,
+        effort: 8,
+        riceScore: 338
       },
       {
         feature: "Google Calendar & Meet Scheduler Integration",
-        impact: "High",
-        effort: "Medium",
-        priority: "High"
+        reach: 1200,
+        impact: 2,
+        confidence: 85,
+        effort: 5,
+        riceScore: 408
       },
       {
         feature: "Analytics & Placement Stats Dashboard",
-        impact: "Medium",
-        effort: "Medium",
-        priority: "High"
+        reach: 200,
+        impact: 2,
+        confidence: 80,
+        effort: 6,
+        riceScore: 53
       }
     ],
     successMetrics: {
@@ -383,27 +403,35 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     featurePrioritization: [
       {
         feature: "Academic Resource & PYQ Hub",
-        impact: "High",
-        effort: "Medium",
-        priority: "High"
+        reach: 1200,
+        impact: 3,
+        confidence: 90,
+        effort: 4,
+        riceScore: 810
       },
       {
         feature: "Query Desk (Structured Ticketing)",
-        impact: "High",
-        effort: "High",
-        priority: "High"
+        reach: 1000,
+        impact: 2,
+        confidence: 85,
+        effort: 5,
+        riceScore: 340
       },
       {
         feature: "Interactive Timetables & Calendars",
-        impact: "Medium",
-        effort: "Medium",
-        priority: "High"
+        reach: 1200,
+        impact: 1,
+        confidence: 95,
+        effort: 3,
+        riceScore: 380
       },
       {
         feature: "Administrative Analytics Dashboard",
-        impact: "Medium",
-        effort: "High",
-        priority: "Medium"
+        reach: 50,
+        impact: 2,
+        confidence: 70,
+        effort: 6,
+        riceScore: 12
       }
     ],
     successMetrics: {
@@ -477,28 +505,36 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     ],
     featurePrioritization: [
       {
-        feature: "Keyboard-First Triggers (Space & Slash Commands)",
-        impact: "High",
-        effort: "Low",
-        priority: "High"
+        feature: "Keyboard-First Triggers (Space & /ai)",
+        reach: 4000,
+        impact: 2,
+        confidence: 95,
+        effort: 2,
+        riceScore: 3800
       },
       {
         feature: "Single-Click Context Templates",
-        impact: "High",
-        effort: "Medium",
-        priority: "High"
+        reach: 3500,
+        impact: 3,
+        confidence: 85,
+        effort: 5,
+        riceScore: 1785
       },
       {
         feature: "Block-Aware Local Context Mapping (RAG)",
-        impact: "High",
-        effort: "High",
-        priority: "High"
+        reach: 3000,
+        impact: 3,
+        confidence: 70,
+        effort: 12,
+        riceScore: 525
       },
       {
         feature: "Inline Action Item Extractor",
-        impact: "Medium",
-        effort: "Medium",
-        priority: "Medium"
+        reach: 2000,
+        impact: 1,
+        confidence: 75,
+        effort: 4,
+        riceScore: 375
       }
     ],
     successMetrics: {
@@ -675,37 +711,52 @@ export default function CaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 6: Feature Prioritization */}
+        {/* Section 6: Feature Prioritization (RICE) */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Layers size={20} className="text-[#4A5D11]" />
             <h2 className="text-xl font-black text-[#03045E] tracking-tight">6. Feature Prioritization</h2>
           </div>
+          {/* RICE formula legend */}
+          <div className="flex flex-wrap gap-3 text-[10px] font-mono text-[#03045E]/60 border border-[#03045E]/20 rounded-sm px-4 py-2 bg-[#FAF9D8]/40">
+            <span className="font-black text-[#03045E] text-[11px] mr-2">RICE Score =</span>
+            <span><strong className="text-[#4A5D11]">R</strong>each × <strong className="text-[#4A5D11]">I</strong>mpact × <strong className="text-[#4A5D11]">C</strong>onfidence%</span>
+            <span className="text-[#03045E]/30">÷</span>
+            <span><strong className="text-[#4A5D11]">E</strong>ffort (person-weeks)</span>
+            <span className="ml-auto text-[#03045E]/40">Higher score → higher priority</span>
+          </div>
           <div className="overflow-x-auto border-2 border-[#03045E] rounded-sm bg-white shadow-[3px_3px_0px_0px_#03045E]">
             <table className="w-full text-left border-collapse text-xs md:text-sm">
               <thead>
                 <tr className="bg-[#F5E88F] border-b-2 border-[#03045E] text-[#03045E] font-black uppercase tracking-wider text-[11px]">
-                  <th className="p-4 border-r border-[#03045E]">Feature Scope</th>
-                  <th className="p-4 border-r border-[#03045E]">User Impact</th>
-                  <th className="p-4 border-r border-[#03045E]">Eng. Effort</th>
-                  <th className="p-4">Priority</th>
+                  <th className="p-4 border-r border-[#03045E]">Feature</th>
+                  <th className="p-4 border-r border-[#03045E] text-center">Reach <span className="font-normal normal-case">(users/qtr)</span></th>
+                  <th className="p-4 border-r border-[#03045E] text-center">Impact <span className="font-normal normal-case">(0.25–3)</span></th>
+                  <th className="p-4 border-r border-[#03045E] text-center">Confidence <span className="font-normal normal-case">(%)</span></th>
+                  <th className="p-4 border-r border-[#03045E] text-center">Effort <span className="font-normal normal-case">(weeks)</span></th>
+                  <th className="p-4 text-center">RICE Score</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#03045E] text-[#03045E] font-medium">
-                {study.featurePrioritization.map((feat, idx) => (
+              <tbody className="divide-y divide-[#03045E]/20 text-[#03045E] font-medium">
+                {study.featurePrioritization
+                  .slice()
+                  .sort((a, b) => b.riceScore - a.riceScore)
+                  .map((feat, idx) => (
                   <tr key={idx} className="hover:bg-[#FAF9D8]/30 transition-colors">
-                    <td className="p-4 font-black text-[#03045E] border-r border-[#03045E] bg-[#FAF9D8]/10">{feat.feature}</td>
-                    <td className="p-4 border-r border-[#03045E] font-serif text-center">{feat.impact}</td>
-                    <td className="p-4 border-r border-[#03045E] font-serif text-center">{feat.effort}</td>
-                    <td className="p-4 text-center font-mono">
-                      <span className={`px-2 py-0.5 rounded-sm border text-[10px] font-bold ${
-                        feat.priority === "High" 
-                          ? "bg-red-50 text-red-700 border-red-300" 
-                          : feat.priority === "Medium"
-                            ? "bg-yellow-50 text-yellow-700 border-yellow-300"
-                            : "bg-green-50 text-green-700 border-green-300"
+                    <td className="p-4 font-black text-[#03045E] border-r border-[#03045E]/20 bg-[#FAF9D8]/10 max-w-[200px]">{feat.feature}</td>
+                    <td className="p-4 border-r border-[#03045E]/20 font-mono text-center text-[#03045E]/70">{feat.reach.toLocaleString()}</td>
+                    <td className="p-4 border-r border-[#03045E]/20 font-mono text-center text-[#03045E]/70">{feat.impact}</td>
+                    <td className="p-4 border-r border-[#03045E]/20 font-mono text-center text-[#03045E]/70">{feat.confidence}%</td>
+                    <td className="p-4 border-r border-[#03045E]/20 font-mono text-center text-[#03045E]/70">{feat.effort}w</td>
+                    <td className="p-4 text-center">
+                      <span className={`px-3 py-1 rounded-sm border font-black font-mono text-sm ${
+                        feat.riceScore >= 400
+                          ? "bg-[#03045E] text-[#F5E88F] border-[#03045E]"
+                          : feat.riceScore >= 100
+                            ? "bg-[#F5E88F] text-[#03045E] border-[#03045E]"
+                            : "bg-white text-[#03045E]/50 border-[#03045E]/30"
                       }`}>
-                        {feat.priority}
+                        {feat.riceScore}
                       </span>
                     </td>
                   </tr>
