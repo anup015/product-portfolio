@@ -12,545 +12,480 @@ import {
   Compass, 
   Layers, 
   Target, 
-  Users 
+  Users,
+  Frown
 } from "lucide-react";
 
-// In-memory detailed data for the PM Case Studies
-const CASE_STUDIES_DATA: Record<string, {
+interface TargetUser {
+  role: string;
+  description: string;
+}
+
+interface PainPoint {
+  role: string;
+  points: string[];
+}
+
+interface UserStory {
+  role: string;
+  story: string;
+  benefit: string;
+}
+
+interface FeaturePriority {
+  feature: string;
+  impact: "High" | "Medium" | "Low";
+  effort: "High" | "Medium" | "Low";
+  priority: "High" | "Medium" | "Low";
+}
+
+interface CaseStudy {
   title: string;
   tagline: string;
   category: string;
   context: string;
-  problem: string;
-  research: {
-    methodology: string;
-    insights: string[];
-  };
-  personas: {
-    name: string;
-    role: string;
-    bio: string;
-    needs: string[];
-    painPoints: string[];
-  }[];
-  competitors: {
-    name: string;
-    pros: string;
-    cons: string;
-  }[];
-  decisions: {
-    decision: string;
-    rationale: string;
-  }[];
-  features: {
-    name: string;
-    description: string;
-    pmAngle: string;
-  }[];
-  metrics: {
-    northStar: string;
-    description: string;
+  problemStatement: string;
+  goals: string[];
+  targetUsers: TargetUser[];
+  painPoints: PainPoint[];
+  userStories: UserStory[];
+  featurePrioritization: FeaturePriority[];
+  successMetrics: {
+    northStar: {
+      name: string;
+      description: string;
+    };
     secondary: string[];
   };
-  learnings: string[];
-}> = {
+  conclusion: string;
+}
+
+// Detailed PRD data for Case Studies
+const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
   "ask-your-senior": {
     title: "AskYourSenior",
     tagline: "College-Centric Professional Networking & Mentorship Platform",
     category: "Featured Product Case Study",
     context: "Inspired by first-hand friction encountered while applying for off-campus internships. Finding the right senior for guidance or referrals was difficult, even when alumni from the same college worked at the target firm. Existing networks like LinkedIn lack hyper-local campus context, forcing students to rely on fragmented WhatsApp chats or outdated databases.",
-    problem: "Students preparing for placements face critical bottlenecks: discovering which alumni work at specific firms; missing referral deadlines due to cold outreach latency; career guidance getting scattered across WhatsApp, Discord, and emails; institutional hiring logs and preparation resources disappearing when seniors graduate; and busy mentors getting flooded with unstructured spam requests.",
-    research: {
-      methodology: "Conducted virtual interviews with 25 engineering juniors and 10 working alumni from IIIT Nagpur.",
-      insights: [
-        "80% of juniors hesitate to message alumni on LinkedIn due to lack of a shared contextual entry point.",
-        "90% of alumni are willing to refer students but refuse to review sloppy, unformatted resumes.",
-        "Alumni report fatigue from answering the same basic questions (e.g., 'how to prepare for DBMS') multiple times."
-      ]
-    },
-    personas: [
+    problemStatement: "Students preparing for placements face critical bottlenecks: discovering which alumni work at specific firms; missing referral deadlines due to cold outreach latency; career guidance getting scattered across WhatsApp, Discord, and emails; institutional hiring logs and preparation resources disappearing when seniors graduate; and busy mentors getting flooded with unstructured spam requests.",
+    goals: [
+      "Bridge career, referral, and mentorship gaps between current students and alumni.",
+      "Protect senior and alumnus bandwidth using structured interaction channels.",
+      "Preserve institutional placement knowledge, preparation resources, and stats across batches.",
+      "Minimize cold outreach friction by building a trusted college-focused professional ecosystem."
+    ],
+    targetUsers: [
       {
-        name: "Prabhu (Junior)",
-        role: "2nd Year CSE Student (The Novice Explorer)",
-        bio: "Struggles to identify reliable study resources and feels overwhelmed by options, seeking curated direction from trusted college seniors.",
-        needs: [
-          "Access to structured roadmaps verified by top alumni.",
-          "Curated learning materials rather than random links."
-        ],
-        painPoints: [
-          "Spends days searching for academic guides with low quality results.",
-          "Lacks direct connections to senior peers for advice."
+        role: "Juniors (CSE/Engineering Students)",
+        description: "Looking for career roadmaps, resume review checkpoints, and off-campus referral opportunities."
+      },
+      {
+        role: "Working Alumni / Seniors",
+        description: "Willing to help their college peers but have limited free time and are fatigued by generic requests."
+      }
+    ],
+    painPoints: [
+      {
+        role: "Juniors",
+        points: [
+          "80% hesitate to message alumni on LinkedIn due to lack of a shared contextual entry point.",
+          "Messages sent to cold contacts are left on read, causing missed application deadlines.",
+          "Preparation logs and resources are scattered across private drives and group chats."
         ]
       },
       {
-        name: "Rythem (Junior)",
-        role: "3rd Year CSE Student (The Seeker)",
-        bio: "Ambitious but lacks industry exposure. Wants to apply for off-campus software roles but has no network in top-tier companies.",
-        needs: [
-          "Direct, warm channels to request referrals.",
-          "Clear career roadmap steps relevant to his college constraints."
-        ],
-        painPoints: [
-          "Messages sent on LinkedIn are left on read.",
-          "Unsure if his resume meets industry criteria."
-        ]
-      },
-      {
-        name: "Shresth",
-        role: "Software Engineer at Top Tech Co (The Referrer / Alumni)",
-        bio: "Wants to give back to his college community, but has highly limited time. Receives random, vague messages like 'please find me a job'.",
-        needs: [
-          "Only wants to see high-quality, pre-screened resumes.",
-          "Wants to avoid repeating basic resource links."
-        ],
-        painPoints: [
-          "Wastes time reading unstructured requests.",
-          "Has to review resumes that lack standard projects."
-        ]
-      },
-      {
-        name: "Jayant",
-        role: "Alumni / Senior PM at AI Startup (The Expert Advisor)",
-        bio: "Eager to guide promising juniors but is fatigued by general questions and lacks a structured portal to filter students by tech stack.",
-        needs: [
-          "A dashboard that displays pre-vetted resumes.",
-          "Specific context of candidate projects before committing time."
-        ],
-        painPoints: [
-          "Gets dozens of generic LinkedIn requests daily.",
-          "Cannot easily determine a candidate's readiness from a cold email."
+        role: "Alumni / Seniors",
+        points: [
+          "Flood of vague, unstructured LinkedIn requests (e.g., 'please find me a job').",
+          "Reviewing unvetted, sloppy, or improperly formatted resume files wasting time.",
+          "Repeating answers to basic, recurring preparation questions (e.g., 'how to prepare for DBMS')."
         ]
       }
     ],
-    competitors: [
+    userStories: [
       {
-        name: "LinkedIn",
-        pros: "Massive scale, direct professional records.",
-        cons: "Low response rates for cold messages; lacks the trust/warmth of a local college affiliation."
+        role: "Junior",
+        story: "I want to filter the alumni directory by target company, role, batch, and skills",
+        benefit: "I can quickly discover the right senior to contact for a warm referral or mentorship."
       },
       {
-        name: "Discord/WhatsApp Channels",
-        pros: "Highly active, real-time message response.",
-        cons: "Unstructured chat feed where resources, roadmaps, and referral requests get lost in minutes."
+        role: "Junior",
+        story: "I want to submit referral requests using a standardized template",
+        benefit: "I can provide my CV, job code, and introductory pitch clearly without writing long unstructured drafts."
       },
       {
-        name: "ADPList",
-        pros: "Excellent formal mentoring.",
-        cons: "Lacks hyper-local campus context (e.g. knowing who cracked which company from their specific college department)."
+        role: "Alumnus",
+        story: "I want to view pre-screened referral requests with clean resume templates",
+        benefit: "I can quickly evaluate candidates and submit referrals with minimal time and effort."
+      },
+      {
+        role: "Alumnus",
+        story: "I want common preparation and resource questions routed to a centralized vault or future chatbot",
+        benefit: "I can save my bandwidth for advanced, high-value career consultations."
       }
     ],
-    decisions: [
+    featurePrioritization: [
       {
-        decision: "Structured Interaction Gating",
-        rationale: "To protect alumni and senior time, unstructured messaging was replaced by template-driven request channels (Mentorship, Referrals, Resume Reviews) ensuring requests are concise and clear."
+        feature: "Searchable Student & Alumni Directory",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
       },
       {
-        decision: "Batch-to-Batch Knowledge Loop",
-        rationale: "Established a centralized Placement Knowledge Repository and Company Intelligence system to capture and index interview logs, timelines, and prep resources before graduating batches exit."
+        feature: "Structured Referral System & Templates",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
+      },
+      {
+        feature: "Placement Knowledge Repository & Co. Intelligence",
+        impact: "High",
+        effort: "High",
+        priority: "High"
+      },
+      {
+        feature: "AI Roadmap (Mentor Match, Resume Guard, Chatbot)",
+        impact: "High",
+        effort: "High",
+        priority: "Medium"
       }
     ],
-    features: [
-      {
-        name: "Searchable Student & Alumni Directory",
-        description: "A database of verified campus members and alumni, searchable by company, role, batch, domain, and skills.",
-        pmAngle: "Lowers discovery friction, allowing students to identify and reach relevant contacts in seconds."
+    successMetrics: {
+      northStar: {
+        name: "Monthly Structured Referral Connections",
+        description: "Measured as the volume of referral applications successfully initiated and approved through the platform's standardized senior templates."
       },
-      {
-        name: "Structured Referral System",
-        description: "Standardized request templates compiling CV links, target job codes, and introductory notes for quick review.",
-        pmAngle: "Simplifies the referral flow for busy seniors, reducing communication overhead."
-      },
-      {
-        name: "Placement Knowledge Hub & Company Intelligence",
-        description: "Central vault containing interview logs, hiring patterns, timeline statistics, and selection records.",
-        pmAngle: "Retains institutional knowledge across graduating batches to create organic, ongoing engagement."
-      }
-    ],
-    metrics: {
-      northStar: "Monthly Structured Referral Connections",
-      description: "Measured as the volume of referral applications initiated and approved through standardized senior outreach pathways.",
       secondary: [
-        "Average senior response turnaround time (TAT)",
+        "Average senior response turnaround time (TAT) (Goal: <48 hours)",
         "Knowledge repository document download & search volumes",
         "Weekly Active Users (WAU) to alumni match ratio"
       ]
     },
-    learnings: [
-      "Gating outreach with structured, purpose-specific templates protects mentor bandwidth, which is key to retaining busy alumni on the platform.",
-      "Preserving institutional peer intelligence (interview experiences, timeline data) generates high organic utility that retains students across batches."
-    ]
+    conclusion: "AskYourSenior transforms the college career search from a cold, fragmented struggle into a centralized professional ecosystem. By replacing open chat with structured, purpose-specific channels, the platform protects alumni bandwidth while opening warm referral pipelines for incoming batches."
   },
   "saksham": {
     title: "SAKSHAM",
-    tagline: "National Internship & Placement Portal (SIH 2025 National Winner)",
+    tagline: "National Internship & Placement Portal",
     category: "SIH 2025 National Winner",
     context: "Developed as a full-stack, enterprise-grade portal to automate and secure the end-to-end internship/placement lifecycle and issue No Objection Certificates (NOCs) across Indian higher education institutions.",
-    problem: "The university placement ecosystem is highly fragmented. Students, faculty mentors, Training & Placement Officers (TPOs), and corporate recruiters operate in silos. This results in manual verification of student profiles (CGPA, skills, attendance), tedious paper-based signatures for No Objection Certificates (NOCs), high coordination delays (often up to 12 working days), low match rates between job requirements and student qualifications, and high drop-off in corporate engagement due to manual scheduling friction.",
-    research: {
-      methodology: "Interviewed 4 TPO administrators, 5 corporate recruiters, and surveyed 50 students at IIIT Nagpur to identify workflow inefficiencies.",
-      insights: [
-        "Average turnaround time (TAT) to issue a single NOC manually was 12 working days, causing 15% of students to risk losing offer deadlines.",
-        "Recruiters reported that 65% of applicants did not meet basic eligibility criteria, leading to screening fatigue.",
-        "Over 100 emails and physical visits were exchanged daily purely for application status tracking and verification logs."
-      ]
-    },
-    personas: [
+    problemStatement: "The university placement ecosystem is highly fragmented. Students, faculty mentors, Training & Placement Officers (TPOs), and corporate recruiters operate in silos. This results in manual verification of student profiles (CGPA, skills, attendance), tedious paper-based signatures for No Objection Certificates (NOCs), high coordination delays (often up to 12 working days), low match rates between job requirements and student qualifications, and high drop-off in corporate engagement due to manual scheduling friction.",
+    goals: [
+      "Automate the validation and secure issuance of student No Objection Certificates (NOCs).",
+      "Remove administrative bottlenecks by digitizing profile verification (CGPA, attendance).",
+      "Increase opportunities relevance through intelligent recruitment matching algorithms.",
+      "Simplify interview scheduling loops between placement cells, candidates, and recruiters."
+    ],
+    targetUsers: [
       {
-        name: "Harshit",
-        role: "TPO Administrator (The Reviewer)",
-        bio: "Responsible for signing off on NOC documents, approving employer registrations, and monitoring overall campus placement metrics.",
-        needs: [
-          "Automated verification of student CGPAs against company cutoffs.",
-          "Single-click digital document signing and generation."
-        ],
-        painPoints: [
-          "Verifying transcripts manually takes 10 minutes per student.",
-          "Flooded with status check emails and walk-ins from anxious students."
+        role: "TPO Administrators & Faculty Mentors",
+        description: "Responsible for signing NOCs, verifying academic records, and managing placement drives."
+      },
+      {
+        role: "Candidates & NOC Applicants",
+        description: "Students seeking transparent status tracking for internship applications and administrative clearances."
+      },
+      {
+        role: "Corporate Recruiters",
+        description: "Industry hiring partners seeking pre-screened candidate lists and smooth interview slots coordination."
+      }
+    ],
+    painPoints: [
+      {
+        role: "TPOs & Faculty",
+        points: [
+          "Verifying student transcripts manually takes 10 minutes per student.",
+          "Chasing coordinators for credentials verification logs, causing delays.",
+          "Flooded with status check emails and physical walk-ins from anxious students."
         ]
       },
       {
-        name: "Jayant",
-        role: "Final Year Student (The Candidate)",
-        bio: "Needs to upload resumes, receive AI-matched recommendations, apply to opportunities, and track approval states.",
-        needs: [
-          "Immediate visibility of application and NOC approval status.",
-          "Easy upload of offer letters and placement credentials."
-        ],
-        painPoints: [
-          "No visibility into where his application is in the hierarchy.",
-          "Fears losing off-campus offers due to slow university clearance."
+        role: "Students",
+        points: [
+          "NOC manual turnaround time (TAT) averages 12 working days, risking missing recruiter compliance deadlines.",
+          "No visibility into where their application is in the clearance hierarchy.",
+          "Standing in lines outside administrative blocks during exam schedules."
         ]
       },
       {
-        name: "Tanishk",
-        role: "3rd Year CSE Student (The NOC Applicant)",
-        bio: "Has secured an off-campus internship and needs speed and transparency in NOC approval logs to meet compliance deadlines.",
-        needs: [
-          "Real-time tracking of NOC progress across university offices.",
-          "Digital uploads with automated confirmation receipts."
-        ],
-        painPoints: [
-          "Spends hours standing in lines outside administrative blocks.",
-          "Fears missing submission deadlines due to manual delays."
-        ]
-      },
-      {
-        name: "Dipesh",
-        role: "Campus Recruiter at Partner Firm (The Recruiter)",
-        bio: "Hires 50+ students annually from the college. Wants a seamless matching ecosystem to approve internship eligibility lists without emails.",
-        needs: [
-          "Direct verification of students' CGPAs and skills data.",
-          "Single-click administrative clearance signature portal."
-        ],
-        painPoints: [
-          "Chasing student coordinators for academic clearance documents.",
-          "Manual tracking of candidate statuses via messy spreadsheets."
+        role: "Recruiters",
+        points: [
+          "65% of applicants do not meet basic eligibility criteria, causing screening fatigue.",
+          "Manual tracking of candidate interview availability across spreadsheets is prone to scheduling conflicts."
         ]
       }
     ],
-    competitors: [
+    userStories: [
       {
-        name: "Superset",
-        pros: "Excellent corporate recruiter intake and resume collection.",
-        cons: "Lacks custom multi-step university administrative approval workflows (NOCs) and internal mentor validation loops."
+        role: "Student",
+        story: "I want to upload my internship offer letter and track the NOC approval states online",
+        benefit: "I can ensure my application receives clearance in time to meet my employer's compliance deadline."
       },
       {
-        name: "Manual Spreadsheets + Email",
-        pros: "Extremely flexible, zero initial software setup cost.",
-        cons: "No audit log, prone to manual entry errors, completely opaque to students."
+        role: "TPO",
+        story: "I want student CGPAs and records automatically cross-referenced against company cutoffs",
+        benefit: "I can approve candidate eligibility lists in bulk with a single click."
+      },
+      {
+        role: "Recruiter",
+        story: "I want candidate shortlisting to auto-schedule interviews on Google Calendar & Meet",
+        benefit: "I can eliminate back-and-forth email scheduling and eliminate calendar conflicts."
       }
     ],
-    decisions: [
+    featurePrioritization: [
       {
-        decision: "Unified 4-Way Dashboard Workflow",
-        rationale: "Built tailored interfaces for Students, Faculty Mentors, Placement Cells (TPOs), and Employers to create a single source of truth and reduce status emails to zero."
+        feature: "Automated Multi-Stage NOC Approval Pipeline",
+        impact: "High",
+        effort: "High",
+        priority: "High"
       },
       {
-        decision: "FastAPI Hybrid Matching Engine",
-        rationale: "To resolve recruiter screening fatigue, built a FastAPI recommendation service calculating similarity scores using sentence-transformers, skill match weights, department fit, and batch multipliers."
+        feature: "FastAPI Hybrid Matching Engine",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
       },
       {
-        decision: "Automated Google Calendar & Meet Integration",
-        rationale: "Connected shortlisting actions directly to a Google Apps Script Web App acting as an API gateway, scheduling calendar events and automatically generating Google Meet links to eliminate back-and-forth email scheduling."
+        feature: "Google Calendar & Meet Scheduler (Apps Script)",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
+      },
+      {
+        feature: "Unified 4-Way Role-Based Dashboards",
+        impact: "High",
+        effort: "High",
+        priority: "High"
       }
     ],
-    features: [
-      {
-        name: "AI-Powered Matching Engine",
-        description: "Uses pgvector and sentence embeddings (all-MiniLM-L6-v2) along with Jaccard skill matching and batch eligibility rules to score and rank candidates.",
-        pmAngle: "Ensures recruiters see high-relevance matches first, boosting selection conversion rates by 35%."
+    successMetrics: {
+      northStar: {
+        name: "Average Turnaround Time (TAT) from Application to Interview",
+        description: "Tracks the absolute efficiency of the placement workflow pipeline, from initial candidate registration to final interview booking."
       },
-      {
-        name: "Automated Google Calendar & Meet Scheduler",
-        description: "Integrates with Google Apps Script to auto-schedule interviews, create Google Meet links, and notify parties.",
-        pmAngle: "Minimizes calendar conflicts and scheduling latency, reducing scheduling effort by 50%."
-      },
-      {
-        name: "Automated Multi-Stage NOC Approval Pipeline",
-        description: "Tracks strict lifecycle states (mentor_approval_needed -> applied -> reviewed -> shortlisted -> accepted/rejected) with digital signature generation.",
-        pmAngle: "Ensures institutional compliance while cutting NOC issuance turnaround time from 12 days to under 2 days."
-      }
-    ],
-    metrics: {
-      northStar: "Average Turnaround Time (TAT) from Application to Interview Scheduling",
-      description: "Reflects the efficiency of the entire workflow pipeline, from initial faculty validation to employer scheduling.",
       secondary: [
-        "NOC Approval Turnaround Time (Goal: <48 hours)",
-        "Recruiter applicant-to-shortlist conversion rate (Goal: >40%)",
-        "Weekly Active Users (WAU) across the 4 dashboards"
+        "NOC Approval Turnaround Time (Goal: cut from 12 days to <48 hours)",
+        "Recruiter conversion rate (shortlist-to-interview ratio) (Goal: >40%)",
+        "Weekly Active Users (WAU) across administrative dashboards"
       ]
     },
-    learnings: [
-      "Secured a 40% reduction in coordination overhead. Automating the administrative bottleneck (NOC) yields the highest immediate user satisfaction.",
-      "Seamless integrations (Google Meet, Mailtrap, Cloudinary) are force multipliers for platform adoption because they replace existing external tools instead of adding new work."
-    ]
+    conclusion: "SAKSHAM streamlines the institutional placement machinery. By automating profile validation and NOC workflows, the platform decreases scheduling latency and administrative overhead, ensuring university systems run at industry speed."
   },
   "acadence": {
-    title: "Acadence (AcadConnect)",
-    tagline: "Premium Campus Academic Management & Collaboration Platform",
+    title: "Acadence",
+    tagline: "Centralized Academic Management & Collaboration Platform",
     category: "Campus Platform MVP",
-    context: "Conceptualized and deployed as a central hub for student resources, peer discussions, and query resolution in a collegiate ecosystem.",
-    problem: "Students struggle with highly fragmented academic communication and resource sharing. Important lecture notes, previous year question papers (PYQs), and official department announcements are scattered across email, WhatsApp groups, and personal drives, making them difficult to find and search. Additionally, student-faculty interaction is highly inefficient, with basic academic queries resulting in repetitive email threads and faculty fatigue. The lack of a centralized, role-based platform leads to information silos, slow communication, and campus-wide productivity drops.",
-    research: {
-      methodology: "Surveyed 120 students and conducted structured interviews with 8 faculty members and 3 department representatives at IIIT Nagpur.",
-      insights: [
-        "78% of students spent more than 30 minutes searching for a single previous year question paper or lecture note before exams.",
-        "Faculty members reported spending up to 4 hours weekly replying to duplicate student emails about timelines, resources, and timetables.",
-        "92% of students expressed a need for structured, course-specific discussion forums to collaborate on assignments and projects."
-      ]
-    },
-    personas: [
+    context: "Conceptualized and deployed as a central hub for student resources, peer discussions, scheduling, and query resolution in a collegiate ecosystem, replacing fragmented channels with a unified role-based system.",
+    problemStatement: "Traditional academic systems rely on disconnected platforms. Resources are scattered across WhatsApp, Google Drive, and personal emails, making them difficult to find and indexing poor. Course queries lack tracking, leading to unanswered concerns and faculty fatigue. Academic announcements are lost in noisy chat feeds, timetables and calendars are shared as static, hard-to-access PDFs, and student records are kept isolated from daily tools. Course feedback is collected only at semester end, limiting opportunities for timely course corrections.",
+    goals: [
+      "Centralize all academic resources (lecture notes, tutorials, PYQs) in a searchable repository.",
+      "Streamline communication between students and faculty through dedicated course channels.",
+      "Provide transparent academic support via a structured Query Desk ticketing system.",
+      "Simplify access to dynamic schedules (interactive timetables, calendars, announcements).",
+      "Empower administrators with platform analytics to drive data-backed curriculum updates."
+    ],
+    targetUsers: [
       {
-        name: "Anup Thakre",
-        role: "3rd Year CSE Student (The Resource Seeker)",
-        bio: "Struggles to find authoritative lecture notes and PYQs, wanting a central hub to access documents and study circles.",
-        needs: [
-          "Single-click access to verified subject materials.",
-          "Ability to submit query tickets anonymously on course issues."
-        ],
-        painPoints: [
-          "Wastes time searching multiple WhatsApp channels for materials.",
-          "Hesitates to ask public queries regarding grading policies."
+        role: "Students",
+        description: "Need single-click access to verified notes, exam PYQs, timetables, and a clear path to resolve academic concerns."
+      },
+      {
+        role: "Faculty Members",
+        description: "Need an organized workspace to distribute course materials, publish notices, and handle student queries without email overload."
+      },
+      {
+        role: "Academic Representatives",
+        description: "Coordinate resource uploads and assist faculty in moderating branch-wide peer discussions."
+      },
+      {
+        role: "Administrators",
+        description: "Need to manage timetables/calendars, control permissions, and inspect platform engagement logs."
+      }
+    ],
+    painPoints: [
+      {
+        role: "Students",
+        points: [
+          "Wasting hours searching across WhatsApp channels for exam question papers.",
+          "Lacking a formal channel to query grading policies or timetables anonymously.",
+          "Missing official department announcements mixed in general chat feeds."
         ]
       },
       {
-        name: "Shivang Tonde",
-        role: "3rd Year CSE Academic Representative (The Moderator)",
-        bio: "Responsible for uploading course materials, sharing exam PYQs, pinning official department announcements, and moderating peer discussions.",
-        needs: [
-          "Auto-approved upload permissions for swift resource sharing.",
-          "Moderation tools to pin posts and archive resolved student queries."
-        ],
-        painPoints: [
-          "Manually forwarding files to 100+ students on messaging apps is highly repetitive.",
-          "Struggles to keep track of query responses from multiple faculty members."
+        role: "Faculty",
+        points: [
+          "Spending hours replying to duplicate student emails regarding schedules and materials.",
+          "Distrusting student-created folders for official course syllabus distribution."
         ]
       },
       {
-        name: "Dr. Madhuri Dubey",
-        role: "CSE Faculty Member (The Subject Expert)",
-        bio: "Teaches Distributed Systems and publishes lecture notes, answers student query tickets, and manages course channels.",
-        needs: [
-          "An organized inbox to respond to student queries systematically.",
-          "Direct dashboard path to publish syllabus and reference documents."
-        ],
-        painPoints: [
-          "Receives dozens of identical emails from students asking about exam formats.",
-          "Distrusts student-shared folders for official syllabus materials."
+        role: "Academic Representatives",
+        points: [
+          "Repetitive files forwarding to 100+ students on group messaging apps."
         ]
       },
       {
-        name: "Dr. Jitendra Tembhurne",
-        role: "Institutional Administrator / Faculty (The Decision Maker)",
-        bio: "Coordinates department-wide announcements, edits timetable files, updates calendars, and monitors system analytics.",
-        needs: [
-          "Full administration dashboard to edit timetables and calendars.",
-          "Visibility into platform adoption metrics, download volumes, and query resolution rates."
-        ],
-        painPoints: [
-          "Lacks data on student resource needs and class schedules.",
-          "Timetable updates require physical notice board printouts."
+        role: "Administrators",
+        points: [
+          "Timetable updates require physical notice board printouts and static document re-distribution.",
+          "Lacking data on platform engagement or resource demands."
         ]
       }
     ],
-    competitors: [
+    userStories: [
       {
-        name: "Moodle / Traditional LMS",
-        pros: "Robust grading schemas and assignment tracking infrastructure.",
-        cons: "Clunky UI/UX, lacks user-friendly peer-to-peer discussion hubs, and query ticketing desks."
+        role: "Student",
+        story: "I want to search and download lecture notes and PYQs by branch and semester",
+        benefit: "I can prepare for exams efficiently without relying on informal file sharing."
       },
       {
-        name: "WhatsApp / Telegram Groups",
-        pros: "Instant delivery, high immediate mobile user engagement.",
-        cons: "Complete lack of file indexing or search hierarchy; announcements and timetable details get buried under chats."
+        role: "Student",
+        story: "I want to submit academic queries to a structured Query Desk and track their resolution status",
+        benefit: "I can get official answers transparently from faculty without sending formal emails."
       },
       {
-        name: "Google Drive Folders",
-        pros: "Familiar and simple cloud file sharing.",
-        cons: "No integrated query desk, zero scheduling awareness, and no role-based workflow gating."
+        role: "Faculty",
+        story: "I want to publish materials and notices on a dedicated Course Connect channel",
+        benefit: "I can ensure students get authoritative resources and reduce my repetitive email inbox load."
+      },
+      {
+        role: "Administrator",
+        story: "I want to update timetable entries on a dynamic dashboard",
+        benefit: "I can propagate schedule changes to all student viewports instantly."
       }
     ],
-    decisions: [
+    featurePrioritization: [
       {
-        decision: "Query Desk (Ticketing System) with Role Gating",
-        rationale: "Rather than letting students email faculty directly, we created a Query Desk where students file categorized tickets (e.g. Exam Difficulty, Academic Policy). Faculty respond directly, and Academic Reps can moderate, making answers visible to all students."
+        feature: "Academic Resource & PYQ Hub",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
       },
       {
-        decision: "Three-tier Resource Approval Pipeline",
-        rationale: "To ensure accuracy of uploaded notes/PYQs, student uploads enter a 'Pending' status. Faculty and Academic Rep uploads are 'Auto-Approved', and Admins have full override control, maintaining platform trust."
+        feature: "Query Desk (Structured Ticketing)",
+        impact: "High",
+        effort: "High",
+        priority: "High"
+      },
+      {
+        feature: "Interactive Timetables & Calendars",
+        impact: "Medium",
+        effort: "Medium",
+        priority: "High"
+      },
+      {
+        feature: "Administrative Analytics Dashboard",
+        impact: "Medium",
+        effort: "High",
+        priority: "Medium"
       }
     ],
-    features: [
-      {
-        name: "Academic Resources & PYQ Hub",
-        description: "A centralized, searchable document desk indexing resources by department, year, semester, and exam type.",
-        pmAngle: "Solves the core pain point of fragmented files, saving students hours of preparation time per exam."
+    successMetrics: {
+      northStar: {
+        name: "Weekly Active Document Downloads & Query Resolutions",
+        description: "Measures the utility students derive from study materials and the responsiveness of faculty support."
       },
-      {
-        name: "Query Desk",
-        description: "A structured ticketing system mapping student academic questions to specific faculty domains.",
-        pmAngle: "Reduces repetitive email load on faculty while creating a searchable campus-wide Q&A archive."
-      },
-      {
-        name: "Discussion Boards & Study Circles",
-        description: "Peer discussion panels organized by branch/subject and student-created circles with custom member limits and goals.",
-        pmAngle: "Fosters organic peer collaboration, reducing dependency on external chat apps."
-      }
-    ],
-    metrics: {
-      northStar: "Weekly Active Document Downloads & Query Resolutions",
-      description: "Reflects the ongoing utility students get from learning materials and the speed of academic support resolution.",
       secondary: [
         "Average query resolution time (Goal: <24 hours)",
-        "Daily Active Users (DAU) during exam preparation weeks",
-        "Resource upload approval rate (Goal: >90% accuracy)"
+        "Daily Active Users (DAU) peak during exam preparation windows",
+        "Material upload accuracy (Auto-Approved vs Pending verification ratio)"
       ]
     },
-    learnings: [
-      "Centralizing scattered exam resources (PYQs) creates a highly sticky user loop, driving peak platform adoption during exam cycles.",
-      "Clear role definitions (Auto-Approved vs Pending) allow the system to scale without taxing faculty time with validation tasks."
-    ]
+    conclusion: "Acadence centralizes fragmented academic communication into a unified digital workspace. By combining resource hubs, structured query management, scheduling, and admin dashboards under a role-based gateway, it improves academic velocity and transparency."
   },
   "notion-ai": {
     title: "Notion AI",
     tagline: "Notion AI — 0 to 1 Launch (Product Scoping & Integration Case Study)",
     category: "Notion AI — 0 to 1 Launch",
-    context: "Product teardown and strategic launch case study examining Notion's native LLM feature scoping and integration model.",
-    problem: "In 2022-2023, Generative AI tools were highly fragmented. Writing professionals faced significant copy-paste friction: copy text from Notion, paste to external ChatGPT windows, prompt, copy results back, and format block layouts. Integrating AI directly inside a block-based document editor posed high product bifurcation risks (users seeking clean writing vs automated bloat), latency challenges, and prompt-writing fatigue.",
-    research: {
-      methodology: "Analyzed productivity usage patterns and copy-paste frequency data among 500+ active product professionals.",
-      insights: [
-        "75% of context switching occurs during text synthesis and note-taking phases.",
-        "Users reject editor extensions if latency exceeds 800ms or demands custom prompt scripts.",
-        "Over 85% of users experience prompt fatigue and prefer one-click contextual templates."
-      ]
-    },
-    personas: [
+    context: "Strategic launch teardown examining Notion's native LLM feature scoping and integration model. Explores the 'opt-in vs on by default' product bifurcation risk and metrics framework.",
+    problemStatement: "In 2022-2023, Generative AI tools were highly fragmented. Writing professionals faced significant copy-paste friction: copying text from Notion, pasting into external ChatGPT windows, prompting, copying results back, and re-formatting block layouts. Integrating AI directly inside a block-based editor posed high product bifurcation risks (users seeking clean writing spaces vs automated clutter), latency challenges, and prompt-writing fatigue.",
+    goals: [
+      "Eliminate copy-paste context switching by embedding LLM features directly inside the block editor.",
+      "Preserve a distraction-free editing canvas for writers who prefer not to use AI.",
+      "Solve prompt-writing fatigue through one-click contextual formatting templates.",
+      "Optimize local context mapping to minimize API token usage and response latency."
+    ],
+    targetUsers: [
       {
-        name: "Shivang",
-        role: "Lead PM & Agile Facilitator (The Agenda Builder)",
-        bio: "Drafts long requirement documents and meeting notes. Relies on AI tools to extract tickets, checklists, and dates automatically.",
-        needs: [
-          "Automated action item extraction from unstructured notes.",
-          "High editing velocity with minimal menu interactions."
-        ],
-        painPoints: [
-          "Spends hours translating raw meeting notes into JIRA cards.",
-          "Intrusive popups that disrupt writing cadence."
+        role: "Content Writers",
+        description: "Value clean, distraction-free document spaces and are sensitive to lag or unsolicited intrusive overlays."
+      },
+      {
+        role: "Lead Product Managers & Agilists",
+        description: "Regularly draft long specification documents and seek automated checklists extraction."
+      }
+    ],
+    painPoints: [
+      {
+        role: "Content Writers",
+        points: [
+          "Interrupting writing velocity to switch windows and copy-paste text to external LLMs.",
+          "Unsolicited tooltips or intrusive AI suggestions disrupting creative focus.",
+          "API response latency exceeding acceptable limits (target: <600ms)."
         ]
       },
       {
-        name: "Dipesh",
-        role: "Content Writer (The Clean Editor)",
-        bio: "Values distraction-free document spaces. Highly sensitive to intrusive AI overlays or typing lags that break focus.",
-        needs: [
-          "Completely unobtrusive UI triggers.",
-          "Ability to ignore AI features entirely if desired."
-        ],
-        painPoints: [
-          "Unsolicited tool tips or popups.",
-          "Accidental AI trigger commands during manual typing."
-        ]
-      },
-      {
-        name: "Rythem (Junior)",
-        role: "Student Researcher & Note-Taker (The Synthesizer)",
-        bio: "Leverages Notion databases to compile notes and research drafts. Needs prompt-free summaries to parse massive documentation quickly.",
-        needs: [
-          "Instant summarization of highlighted pages and blocks.",
-          "Context-aware AI assistance inside the active document window."
-        ],
-        painPoints: [
-          "Copy-pasting context to external AI tools breaks study workflow.",
-          "Lacks easy templates to parse PDF text in-place."
-        ]
-      },
-      {
-        name: "Harshit",
-        role: "Product Spec Creator (The Builder)",
-        bio: "Needs to synthesize product requirements and generate task checklists instantly, wanting the editor to automatically write summaries in place.",
-        needs: [
-          "One-click content summarization and task extraction.",
-          "High editing velocity without window context switching."
-        ],
-        painPoints: [
-          "Loses time switching to chat windows.",
-          "Vague LLM outputs that require manual re-tagging."
+        role: "Product Managers",
+        points: [
+          "Spending manual editing time converting unstructured meeting logs into action items.",
+          "Writing repetitive custom prompts to format blocks to professional templates."
         ]
       }
     ],
-    competitors: [
+    userStories: [
       {
-        name: "ChatGPT (OpenAI Web Portal)",
-        pros: "Strong generic intelligence, versatile conversation memory.",
-        cons: "High context friction; no awareness of the block editor's database schema or page context."
+        role: "Writer",
+        story: "I want to activate AI using a simple keyboard command (Space on an empty block or /ai)",
+        benefit: "I can trigger AI features instantly without breaking my writing posture or taking my hands off the keyboard."
       },
       {
-        name: "Google Docs Smart Canvas",
-        pros: "Excellent collaborative canvas infrastructure.",
-        cons: "Slower to adopt modular block commands and quick action templates."
+        role: "Writer",
+        story: "I want to highlight text and select formatting presets like 'Summarize' or 'Professional Tone'",
+        benefit: "I can optimize my document styling instantly without writing custom prompts."
       },
       {
-        name: "Jasper / Copy.ai",
-        pros: "Rich marketing-focused copywriting templates.",
-        cons: "Lacks general note-taking structure and workspace database integration."
+        role: "PM",
+        story: "I want AI to scan meeting blocks and extract an actionable check-list",
+        benefit: "I can generate my tasks list instantly and reduce follow-up overhead."
       }
     ],
-    decisions: [
+    featurePrioritization: [
       {
-        decision: "Keyboard-First Trigger (Space & Slash Commands)",
-        rationale: "Kept the interface clean and solved bifurcation risk by hiding AI behind existing keyboard triggers (pressing Space on an empty block or typing /ai). Writers are never disrupted, while power users get instant access."
+        feature: "Keyboard-First Triggers (Space & Slash Commands)",
+        impact: "High",
+        effort: "Low",
+        priority: "High"
       },
       {
-        decision: "Block-Aware Local Context Mapping",
-        rationale: "Instead of sending the entire document to the LLM, the integration restricts RAG context to adjacent blocks or highlighted paragraphs, reducing token cost and latency by 45%."
-      }
-    ],
-    features: [
-      {
-        name: "Inline Action Item Extractor",
-        description: "Scans meeting notes blocks, identifies verbs, and auto-populates checkbox lists below the text.",
-        pmAngle: "Translates abstract text into immediate productivity workflows."
+        feature: "Single-Click Context Templates",
+        impact: "High",
+        effort: "Medium",
+        priority: "High"
       },
       {
-        name: "Single-Click Context Templates",
-        description: "Pre-configures prompts like 'Summarize', 'Change Tone to Professional', or 'Fix Grammar' directly into contextual overlays.",
-        pmAngle: "Solves prompt-writing fatigue by hiding instructions under a template layer."
+        feature: "Block-Aware Local Context Mapping (RAG)",
+        impact: "High",
+        effort: "High",
+        priority: "High"
+      },
+      {
+        feature: "Inline Action Item Extractor",
+        impact: "Medium",
+        effort: "Medium",
+        priority: "Medium"
       }
     ],
-    metrics: {
-      northStar: "Weekly Active AI Interactions Per User",
-      description: "Measured as the average count of successful AI-completed commands per user week.",
+    successMetrics: {
+      northStar: {
+        name: "Weekly Active AI Interactions Per User",
+        description: "Measured as the average count of successful AI-completed commands per active user week."
+      },
       secondary: [
-        "Retention rate of users who use AI in week 1 (target: +15% vs baseline)",
-        "Prompt-to-output latency (target: <600ms)",
-        "Premium subscription upgrade conversion rate"
+        "First-week retention rate of users who triggered AI presets",
+        "API prompt-to-output latency (Goal: <600ms)",
+        "AI premium plan upgrade conversion rate"
       ]
     },
-    learnings: [
-      "Closeness to the user context is a product's ultimate moat. The value of Notion AI lies not in the LLM model itself, but in having immediate access to your database notes.",
-      "Self-Aware PM Reflection: Notion should have launched a free usage tier of AI earlier to accelerate adoption before competitors bundled it natively."
-    ]
+    conclusion: "Notion AI demonstrates that context is a product's ultimate moat. By placing generative power directly in the block-level workspace, it solves context switching and prompt fatigue, establishing AI as an essential component of document editing."
   }
 };
 
@@ -610,80 +545,102 @@ export default function CaseStudyPage() {
         </div>
       </section>
 
-      {/* Main Breakdown */}
+      {/* Main breakdown - PRD layout */}
       <main className="mx-auto max-w-4xl px-6 mt-16 grid grid-cols-1 gap-16">
         
-        {/* Section 1: Problem */}
+        {/* Section 1: Problem Statement */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Target size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Problem Definition</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">1. Problem Statement</h2>
           </div>
           <p className="font-serif text-base text-[#03045E]/85 leading-relaxed max-w-3xl">
-            {study.problem}
+            {study.problemStatement}
           </p>
         </section>
 
-        {/* Section 2: Research */}
+        {/* Section 2: Goals & Objectives */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
-            <BookOpen size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">User Research</h2>
+            <Compass size={20} className="text-[#4A5D11]" />
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">2. Goals & Objectives</h2>
           </div>
-          <div className="space-y-1">
-            <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">Methodology</span>
-            <p className="font-serif text-base text-[#03045E] leading-relaxed italic bg-white p-5 border border-[#03045E] rounded-sm shadow-[2px_2px_0px_0px_#03045E]">
-              "{study.research.methodology}"
-            </p>
-          </div>
-          <div className="space-y-3 pt-2">
-            <span className="text-[10px] font-bold text-[#4A5D11] uppercase tracking-wider block">Key Insights Gathered</span>
-            <ul className="space-y-3">
-              {study.research.insights.map((insight, idx) => (
-                <li key={idx} className="flex items-start gap-4 text-sm md:text-base text-[#5C6274] leading-relaxed">
-                  <div className="h-6 w-6 rounded-full border border-[#03045E] bg-[#F5E88F] text-[#03045E] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-[1px_1px_0px_0px_#03045E]">
-                    {idx + 1}
-                  </div>
-                  <span className="font-serif text-[#03045E]/85">{insight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="space-y-3">
+            {study.goals.map((goal, idx) => (
+              <li key={idx} className="flex items-start gap-4 text-sm md:text-base text-[#03045E] leading-relaxed">
+                <div className="h-6 w-6 rounded-full border border-[#03045E] bg-[#F5E88F] text-[#03045E] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-[1px_1px_0px_0px_#03045E]">
+                  {idx + 1}
+                </div>
+                <span className="font-serif text-[#03045E]/85">{goal}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        {/* Section 3: Personas */}
+        {/* Section 3: Target Users */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <Users size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">User Personas</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">3. Target Users</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            {study.personas.map((persona, idx) => (
-              <div key={idx} className="bg-white border border-[#03045E] rounded-sm p-6 shadow-[4px_4px_0px_0px_#03045E] hover:shadow-[6px_6px_0px_0px_#03045E] transition-all space-y-4">
-                <div className="flex justify-between items-start gap-2 border-b border-[#03045E]/10 pb-2">
-                  <div>
-                    <h3 className="font-black text-[#03045E] text-base leading-none">{persona.name}</h3>
-                    <span className="text-[11px] text-[#4A5D11] font-bold uppercase tracking-wider block mt-1">{persona.role}</span>
-                  </div>
-                  <span className="text-[9px] font-bold uppercase tracking-wider bg-[#FAF9D8] px-2 py-0.5 border border-[#03045E]/25 rounded-sm">
-                    {idx === 0 ? "Primary" : idx === 1 ? "Secondary" : `User Archetype ${idx}`}
-                  </span>
+            {study.targetUsers.map((user, idx) => (
+              <div key={idx} className="bg-white border border-[#03045E] rounded-sm p-6 shadow-[3px_3px_0px_0px_#03045E] flex flex-col justify-between">
+                <div>
+                  <span className="text-[9px] font-black uppercase text-[#4A5D11] tracking-widest block">Role Archetype {idx + 1}</span>
+                  <h3 className="font-black text-[#03045E] text-base mt-1 leading-none">{user.role}</h3>
+                  <p className="font-serif text-sm text-[#5C6274] mt-3 leading-relaxed">
+                    {user.description}
+                  </p>
                 </div>
-                <p className="font-serif text-xs md:text-sm text-[#5C6274] leading-relaxed italic">
-                  "{persona.bio}"
-                </p>
-                <div className="space-y-4 border-t border-[#03045E]/10 pt-3">
-                  <div>
-                    <span className="text-[9px] font-black uppercase text-[#03045E] tracking-widest block">Needs</span>
-                    <ul className="text-xs text-[#5C6274] list-disc list-inside space-y-1 mt-1 leading-relaxed">
-                      {persona.needs.map((n, i) => <li key={i} className="font-serif text-[#03045E]/80">{n}</li>)}
-                    </ul>
-                  </div>
-                  <div>
-                    <span className="text-[9px] font-black uppercase text-[#03045E] tracking-widest block">Frictions</span>
-                    <ul className="text-xs text-[#5C6274] list-disc list-inside space-y-1 mt-1 leading-relaxed">
-                      {persona.painPoints.map((p, i) => <li key={i} className="font-serif text-[#03045E]/80">{p}</li>)}
-                    </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 4: User Pain Points */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
+            <Frown size={20} className="text-[#4A5D11]" />
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">4. User Pain Points</h2>
+          </div>
+          <div className="space-y-6">
+            {study.painPoints.map((pane, idx) => (
+              <div key={idx} className="bg-white/40 border border-[#03045E] rounded-sm p-6 shadow-[2px_2px_0px_0px_#03045E]">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A5D11] border-b border-[#03045E]/10 pb-2 mb-3">{pane.role} Frictions</h3>
+                <ul className="space-y-3">
+                  {pane.points.map((pt, index) => (
+                    <li key={index} className="flex items-start gap-3 text-sm text-[#03045E] leading-relaxed">
+                      <span className="text-[#03045E] mt-0.5">•</span>
+                      <span className="font-serif text-[#03045E]/85">{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 5: User Stories */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
+            <BookOpen size={20} className="text-[#4A5D11]" />
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">5. User Stories</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            {study.userStories.map((story, idx) => (
+              <div key={idx} className="bg-white border border-[#03045E] rounded-sm p-6 shadow-[4px_4px_0px_0px_#03045E] flex flex-col justify-between">
+                <div>
+                  <span className="text-[9px] font-bold uppercase tracking-wider bg-[#FAF9D8] px-2 py-0.5 border border-[#03045E]/20 rounded-sm">Story {idx + 1}</span>
+                  <div className="mt-3 space-y-2">
+                    <p className="text-xs text-[#5C6274] leading-normal font-sans">
+                      <strong className="text-[#03045E] font-black uppercase text-[9px] block">As a {story.role}:</strong>
+                      <span className="font-serif italic text-sm text-[#03045E] block mt-1">"I want to {story.story}..."</span>
+                    </p>
+                    <p className="text-xs text-[#5C6274] leading-normal font-sans border-t border-[#03045E]/5 pt-2">
+                      <strong className="text-[#4A5D11] font-black uppercase text-[9px] block">So that:</strong>
+                      <span className="font-serif text-sm text-[#03045E] block mt-1">{story.benefit}</span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -691,27 +648,39 @@ export default function CaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 4: Competitor Analysis */}
+        {/* Section 6: Feature Prioritization */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
-            <Compass size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Competitor Analysis</h2>
+            <Layers size={20} className="text-[#4A5D11]" />
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">6. Feature Prioritization</h2>
           </div>
           <div className="overflow-x-auto border-2 border-[#03045E] rounded-sm bg-white shadow-[3px_3px_0px_0px_#03045E]">
             <table className="w-full text-left border-collapse text-xs md:text-sm">
               <thead>
                 <tr className="bg-[#F5E88F] border-b-2 border-[#03045E] text-[#03045E] font-black uppercase tracking-wider text-[11px]">
-                  <th className="p-4 border-r border-[#03045E]">Competitor</th>
-                  <th className="p-4 border-r border-[#03045E]">What They Do Well</th>
-                  <th className="p-4">Where They Fall Short</th>
+                  <th className="p-4 border-r border-[#03045E]">Feature Scope</th>
+                  <th className="p-4 border-r border-[#03045E]">User Impact</th>
+                  <th className="p-4 border-r border-[#03045E]">Eng. Effort</th>
+                  <th className="p-4">Priority</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#03045E] text-[#03045E] font-medium">
-                {study.competitors.map((comp, idx) => (
+                {study.featurePrioritization.map((feat, idx) => (
                   <tr key={idx} className="hover:bg-[#FAF9D8]/30 transition-colors">
-                    <td className="p-4 font-black text-[#03045E] border-r border-[#03045E] bg-[#FAF9D8]/10">{comp.name}</td>
-                    <td className="p-4 leading-relaxed border-r border-[#03045E] font-serif text-sm">{comp.pros}</td>
-                    <td className="p-4 leading-relaxed font-serif text-sm">{comp.cons}</td>
+                    <td className="p-4 font-black text-[#03045E] border-r border-[#03045E] bg-[#FAF9D8]/10">{feat.feature}</td>
+                    <td className="p-4 border-r border-[#03045E] font-serif text-center">{feat.impact}</td>
+                    <td className="p-4 border-r border-[#03045E] font-serif text-center">{feat.effort}</td>
+                    <td className="p-4 text-center font-mono">
+                      <span className={`px-2 py-0.5 rounded-sm border text-[10px] font-bold ${
+                        feat.priority === "High" 
+                          ? "bg-red-50 text-red-700 border-red-300" 
+                          : feat.priority === "Medium"
+                            ? "bg-yellow-50 text-yellow-700 border-yellow-300"
+                            : "bg-green-50 text-green-700 border-green-300"
+                      }`}>
+                        {feat.priority}
+                      </span>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -719,66 +688,22 @@ export default function CaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 5: Product Decisions */}
-        <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
-            <Layers size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Product Decisions</h2>
-          </div>
-          <div className="space-y-6">
-            {study.decisions.map((dec, idx) => (
-              <div key={idx} className="bg-white border border-[#03045E] rounded-sm p-6 shadow-[4px_4px_0px_0px_#03045E] hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-                <span className="text-[9px] font-bold bg-[#F5E88F] text-[#03045E] border border-[#03045E] px-2 py-0.5 rounded-sm font-mono uppercase">Decision {idx + 1}</span>
-                <h3 className="text-lg font-black text-[#03045E] mt-2 tracking-tight">{dec.decision}</h3>
-                <p className="text-sm text-[#5C6274] mt-2 leading-relaxed font-serif">
-                  <span className="font-sans font-bold text-[#03045E] uppercase tracking-wider text-[10px] block mb-1">Product Rationale</span>
-                  {dec.rationale}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 6: Key Features */}
-        <section className="space-y-4">
-          <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
-            <Brain size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Key Features & Design Scope</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            {study.features.map((feature, idx) => (
-              <div key={idx} className="border border-[#03045E] bg-white rounded-sm p-6 shadow-[3px_3px_0px_0px_#03045E] hover:shadow-[5px_5px_0px_0px_#03045E] transition-all flex flex-col justify-between">
-                <div>
-                  <h3 className="font-black text-[#03045E] text-lg tracking-tight">{feature.name}</h3>
-                  <p className="text-sm text-[#5C6274] mt-2 leading-relaxed font-serif">
-                    {feature.description}
-                  </p>
-                </div>
-                <div className="bg-[#FAF9D8] border border-[#03045E] rounded-sm p-4 mt-4 text-[12px] text-[#03045E]">
-                  <span className="font-sans font-black uppercase tracking-wider block mb-1 text-[10px] text-[#4A5D11]">PM Reasoning</span>
-                  <div className="font-serif">{feature.pmAngle}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 7: Metrics */}
+        {/* Section 7: Success Metrics */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <BarChart2 size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Metrics Framework</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">7. Success Metrics</h2>
           </div>
-          <div className="bg-[#03045E] border-2 border-[#03045E] text-white rounded-sm p-8 space-y-6 shadow-[6px_6px_0px_0px_#F5E88F]">
+          <div className="bg-[#03045E] border-2 border-[#03045E] text-white rounded-sm p-8 space-y-6 shadow-[4px_4px_0px_0px_#F5E88F]">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#F5E88F] bg-white/10 px-2.5 py-1 rounded-sm">North Star Metric</span>
-              <h3 className="text-2xl font-black mt-3 text-[#F5E88F] tracking-tight">{study.metrics.northStar}</h3>
-              <p className="text-sm text-gray-300 mt-2 leading-relaxed font-serif">{study.metrics.description}</p>
+              <h3 className="text-2xl font-black mt-3 text-[#F5E88F] tracking-tight">{study.successMetrics.northStar.name}</h3>
+              <p className="text-sm text-gray-300 mt-2 leading-relaxed font-serif">{study.successMetrics.northStar.description}</p>
             </div>
             <div className="border-t border-white/10 pt-5">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#F5E88F] block mb-3">Supporting Funnel Metrics</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#F5E88F] block mb-3">Supporting Metrics</span>
               <ul className="text-sm text-gray-300 space-y-2 list-inside">
-                {study.metrics.secondary.map((metric, idx) => (
+                {study.successMetrics.secondary.map((metric, idx) => (
                   <li key={idx} className="flex items-start gap-2 font-serif">
                     <span className="text-[#F5E88F] font-bold">•</span>
                     <span>{metric}</span>
@@ -789,20 +714,15 @@ export default function CaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 8: Learnings */}
+        {/* Section 8: Conclusion */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b-2 border-[#03045E] pb-3 mb-2 pl-1">
             <CheckCircle size={20} className="text-[#4A5D11]" />
-            <h2 className="text-xl font-black text-[#03045E] tracking-tight">Key Learnings</h2>
+            <h2 className="text-xl font-black text-[#03045E] tracking-tight">8. Conclusion</h2>
           </div>
-          <ul className="space-y-4">
-            {study.learnings.map((learning, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-sm md:text-base text-[#5C6274] leading-relaxed">
-                <div className="h-2.5 w-2.5 rounded-full bg-[#4A5D11] shrink-0 mt-2 border border-[#03045E]" />
-                <span className="font-serif text-[#03045E]/85">{learning}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="font-serif text-base text-[#03045E]/85 leading-relaxed max-w-3xl bg-white p-6 border border-[#03045E] rounded-sm shadow-[3px_3px_0px_0px_#03045E]">
+            {study.conclusion}
+          </p>
         </section>
       </main>
 
