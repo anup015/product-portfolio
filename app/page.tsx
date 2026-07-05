@@ -489,10 +489,10 @@ export default function Home() {
                 </div>
 
                 <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
-                  <li>Designed an AI-powered networking ecosystem to bridge career, referral, and mentorship gaps between juniors and industry-active alumni.</li>
-                  <li>Scoped and designed an <strong className="text-[#03045E]">AI Resume Screening Gatekeeper</strong> to evaluate resumes and pre-draft pitches, protecting alumni time and reducing application friction.</li>
-                  <li>Conceptualized a <strong className="text-[#03045E]">RAG-powered college knowledge chatbot</strong> to route common academic/administrative queries, mitigating senior advisor fatigue.</li>
-                  <li>Planned an <strong className="text-[#03045E]">opportunity recommendation engine</strong> to cross-reference scraped off-campus job openings with campus alumni directory connections.</li>
+                  <li>Conceptualized and scoped a college-focused professional networking and mentorship platform to bridge placement and referral gaps between students and alumni.</li>
+                  <li>Designed a searchable directory and structured channels (Mentorship, Referrals, Resume Reviews) to prevent senior messaging fatigue.</li>
+                  <li>Structured a centralized Placement Knowledge Repository and Company Intelligence system to preserve interview experiences and hiring statistics across batches.</li>
+                  <li>Formulated a future AI Roadmap incorporating personalized mentor matching, intelligent referral assistance, and custom career roadmap generators.</li>
                 </ul>
               </div>
 

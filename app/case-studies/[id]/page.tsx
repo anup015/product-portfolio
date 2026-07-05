@@ -56,10 +56,10 @@ const CASE_STUDIES_DATA: Record<string, {
 }> = {
   "ask-your-senior": {
     title: "AskYourSenior",
-    tagline: "AI-Powered College Networking & Referral Ecosystem",
+    tagline: "College-Centric Professional Networking & Mentorship Platform",
     category: "Featured Product Case Study",
-    context: "Conceptualized as a scalable college network to address career, referral, and mentorship gaps among engineering students.",
-    problem: "In tier-2/3 college ecosystems, there is no direct, structured channel connecting juniors with alumni and seniors working in top tech companies. Platforms like LinkedIn are too broad, cold, and have low response rates. Group chats (WhatsApp/Discord) are noisy and lack searchable database structures. As a result, juniors miss out on referrals and guidance, while seniors are fatigued by repetitive, poorly framed questions.",
+    context: "Inspired by first-hand friction encountered while applying for off-campus internships. Finding the right senior for guidance or referrals was difficult, even when alumni from the same college worked at the target firm. Existing networks like LinkedIn lack hyper-local campus context, forcing students to rely on fragmented WhatsApp chats or outdated databases.",
+    problem: "Students preparing for placements face critical bottlenecks: discovering which alumni work at specific firms; missing referral deadlines due to cold outreach latency; career guidance getting scattered across WhatsApp, Discord, and emails; institutional hiring logs and preparation resources disappearing when seniors graduate; and busy mentors getting flooded with unstructured spam requests.",
     research: {
       methodology: "Conducted virtual interviews with 25 engineering juniors and 10 working alumni from IIIT Nagpur.",
       insights: [
@@ -141,43 +141,43 @@ const CASE_STUDIES_DATA: Record<string, {
     ],
     decisions: [
       {
-        decision: "AI Resume Screening Gatekeeper",
-        rationale: "To protect alumni/senior time and retain engagement, juniors must pass their resume through the 'AI Referral Assistant' before they can click 'Request Referral'."
+        decision: "Structured Interaction Gating",
+        rationale: "To protect alumni and senior time, unstructured messaging was replaced by template-driven request channels (Mentorship, Referrals, Resume Reviews) ensuring requests are concise and clear."
       },
       {
-        decision: "College Knowledge GPT",
-        rationale: "To prevent senior fatigue, common administrative or academic resource questions are routed to a RAG-powered chatbot, reserving human interactions for advanced career advice."
+        decision: "Batch-to-Batch Knowledge Loop",
+        rationale: "Established a centralized Placement Knowledge Repository and Company Intelligence system to capture and index interview logs, timelines, and prep resources before graduating batches exit."
       }
     ],
     features: [
       {
-        name: "AI Mentor Matching Engine",
-        description: "Matches juniors with seniors based on specific domains, company targets, and common student groups.",
-        pmAngle: "Ensures high-relevance matches, driving up the mentor-to-mentee response rate."
+        name: "Searchable Student & Alumni Directory",
+        description: "A database of verified campus members and alumni, searchable by company, role, batch, domain, and skills.",
+        pmAngle: "Lowers discovery friction, allowing students to identify and reach relevant contacts in seconds."
       },
       {
-        name: "Referral Assistant",
-        description: "Inspects resumes, flags formatting errors, and pre-drafts contextual referral pitches for seniors.",
-        pmAngle: "Reduces senior friction to click 'Approve Referral' by presenting clean applications."
+        name: "Structured Referral System",
+        description: "Standardized request templates compiling CV links, target job codes, and introductory notes for quick review.",
+        pmAngle: "Simplifies the referral flow for busy seniors, reducing communication overhead."
       },
       {
-        name: "Opportunity Recommendation Engine",
-        description: "Scrapes off-campus job openings and cross-references them with college alumni who work at those companies.",
-        pmAngle: "Translates abstract networking into direct career pipelines."
+        name: "Placement Knowledge Hub & Company Intelligence",
+        description: "Central vault containing interview logs, hiring patterns, timeline statistics, and selection records.",
+        pmAngle: "Retains institutional knowledge across graduating batches to create organic, ongoing engagement."
       }
     ],
     metrics: {
-      northStar: "Monthly Successful Referral Connections",
-      description: "Measured as the number of referrals sent and approved by seniors through the platform.",
+      northStar: "Monthly Structured Referral Connections",
+      description: "Measured as the volume of referral applications initiated and approved through standardized senior outreach pathways.",
       secondary: [
-        "Weekly Active Users (WAU) to alumni ratio",
-        "Average senior response turnaround time (Goal: <48 hours)",
-        "Resume quality score improvement after AI feedback"
+        "Average senior response turnaround time (TAT)",
+        "Knowledge repository document download & search volumes",
+        "Weekly Active Users (WAU) to alumni match ratio"
       ]
     },
     learnings: [
-      "AI is most effective when it removes structural friction rather than replacing human elements. The bot serves to prepare the user, not to replace the relationship.",
-      "Scoping an MVP requires ruthless prioritization—focusing on the resume gatekeeper first was essential to keep seniors active."
+      "Gating outreach with structured, purpose-specific templates protects mentor bandwidth, which is key to retaining busy alumni on the platform.",
+      "Preserving institutional peer intelligence (interview experiences, timeline data) generates high organic utility that retains students across batches."
     ]
   },
   "saksham": {
