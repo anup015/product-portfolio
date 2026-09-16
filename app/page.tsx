@@ -183,66 +183,179 @@ export default function Home() {
 
             <div className="max-w-3xl font-serif text-lg md:text-xl text-[#03045E]/90 leading-relaxed space-y-6 mt-6 tracking-normal">
               <p>
-                I am a Computer Science student at <strong className="font-bold text-[#03045E]">IIIT Nagpur</strong> specializing in <strong className="font-bold text-[#03045E]">Human Computer Interaction (HCI)</strong>. My background centers on bridging high-fidelity code construction with human-centered product strategy, RAG-backed systems, and stakeholder management.
+                Currently a <strong className="font-bold text-[#03045E]">Product Intern at Unyfy Technologies (Fintech)</strong> in Bangalore, and a Computer Science student at <strong className="font-bold text-[#03045E]">IIIT Nagpur</strong> specializing in <strong className="font-bold text-[#03045E]">Human Computer Interaction (HCI)</strong>. My background centers on bridging rigorous product strategy, fintech systems, and regulatory scoping with high-fidelity software execution.
               </p>
               <p>
-                I write specifications, manage development backlogs, conduct user research, and ship fullstack MVPs. Currently seeking opportunities in Product Management, AI-driven products, and Founder's Office roles.
+                I write end-to-end PRDs, evaluate unit economics, design multi-channel lifecycle notification systems, and align engineering and compliance teams around complex financial roadmaps.
               </p>
             </div>
 
-            {/* Timeline bullet points matching Figma & LaTeX style */}
-            <div className="mt-16 max-w-3xl space-y-6">
-              <h3 className="text-xl font-black uppercase tracking-wider text-[#03045E] border-b-2 border-[#03045E] pb-3 mb-6">Leadership & Experience</h3>
+            {/* Timeline / Experience Sections */}
+            <div className="mt-16 max-w-3xl space-y-10">
 
-              {/* Exp 1 */}
-              <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-[#03045E]/10 pb-3 mb-3">
-                  <div className="flex flex-col">
-                    <h4 className="text-lg font-black text-[#03045E] tracking-tight">Team Lead (2x)</h4>
-                    <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-wider mt-0.5">Smart India Hackathon</span>
-                  </div>
-                  <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-2.5 py-0.5 text-xs font-bold font-mono text-[#03045E]">
-                    2024 – 2025
+              {/* Work Experience - Unyfy */}
+              <div>
+                <h3 className="text-xl font-black uppercase tracking-wider text-[#03045E] border-b-2 border-[#03045E] pb-3 mb-6 flex items-center justify-between">
+                  <span>Work Experience</span>
+                  <span className="text-xs font-mono font-bold bg-[#F5E88F] text-[#03045E] px-2.5 py-0.5 border border-[#03045E] rounded-sm shadow-[1px_1px_0px_0px_#03045E]">
+                    Fintech
                   </span>
+                </h3>
+
+                {/* Unyfy Card */}
+                <div className="border-2 border-[#03045E] bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_#03045E] rounded-sm hover:shadow-[6px_6px_0px_0px_#03045E] transition-all">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b-2 border-[#03045E]/10 pb-4 mb-4">
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h4 className="text-xl font-black text-[#03045E] tracking-tight">Product Intern</h4>
+                        <span className="inline-flex items-center rounded-sm border border-[#4A5D11] bg-[#4A5D11]/10 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#4A5D11]">
+                          Current Role
+                        </span>
+                      </div>
+                      <div className="text-sm font-bold text-[#4A5D11] tracking-wide mt-1">
+                        Unyfy Technologies (Fintech) <span className="text-[#03045E]/40 font-normal">· Bangalore</span>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-3 py-1 text-xs font-bold font-mono text-[#03045E] shadow-[1.5px_1.5px_0px_0px_#03045E]">
+                      July 2026 – Present
+                    </span>
+                  </div>
+
+                  <p className="text-xs md:text-sm text-[#03045E] font-serif leading-relaxed mb-5 bg-[#FAF9D8]/50 p-3 border border-[#03045E]/20 rounded-sm">
+                    A summary of the product areas owned and evaluated as Product Intern at Unyfy, a fintech app spanning digital gold investing, payments, and financial savings.
+                  </p>
+
+                  {/* 5 Product Tracks */}
+                  <div className="space-y-4 text-sm text-[#5C6274] leading-relaxed">
+                    <div className="border-l-2 border-[#03045E] pl-3 py-0.5">
+                      <h5 className="font-black text-xs uppercase tracking-wider text-[#03045E]">Digital Gold Investing Feature (SafeGold Integration)</h5>
+                      <ul className="list-disc list-outside pl-4 space-y-1 mt-1 text-xs md:text-sm">
+                        <li>Owned the end-to-end PRD for a SafeGold integrated digital gold investing feature, mapping <strong className="text-[#03045E]">buy, sell, SIP, and redemption user flows</strong>.</li>
+                        <li>Worked through open compliance questions on <strong className="text-[#03045E]">GST treatment and SEBI's unregulated status</strong> for digital gold, coordinating with the compliance team before finalizing the specification.</li>
+                      </ul>
+                    </div>
+
+                    <div className="border-l-2 border-[#03045E] pl-3 py-0.5">
+                      <h5 className="font-black text-xs uppercase tracking-wider text-[#03045E]">Notification Engine (In-App and WhatsApp)</h5>
+                      <ul className="list-disc list-outside pl-4 space-y-1 mt-1 text-xs md:text-sm">
+                        <li>Designed a notification engine covering <strong className="text-[#03045E]">7 trigger categories and 26 notification types</strong>, with channel routing across push, in-app, and email, and frequency capping logic to balance engagement against user fatigue.</li>
+                        <li>Built a <strong className="text-[#03045E]">12-template WhatsApp Business API</strong> notification system for gold nudges, transaction alerts, and credit card reminders, restructuring four templates to qualify as genuine <strong className="text-[#03045E]">Utility messaging rather than Marketing</strong> under WhatsApp's classification rules.</li>
+                      </ul>
+                    </div>
+
+                    <div className="border-l-2 border-[#03045E] pl-3 py-0.5">
+                      <h5 className="font-black text-xs uppercase tracking-wider text-[#03045E]">Payments Feature Exploration</h5>
+                      <ul className="list-disc list-outside pl-4 space-y-1 mt-1 text-xs md:text-sm">
+                        <li>Evaluated mechanisms for a credit card-based tuition fee payment feature against <strong className="text-[#03045E]">current RBI and NPCI rules</strong>, found the initially proposed routes blocked, and helped shape a phased approach (<strong className="text-[#03045E]">RuPay UPI merchant payments, a PPI licensed wallet, and a CRED-style bill payment model</strong>) for the team to take forward.</li>
+                        <li>Contributed to scoping a bill utility feature that tracks user bills such as electricity, DTH, and mobile recharge via SMS and email, and funds payment through <strong className="text-[#03045E]">discounted Amazon Pay vouchers</strong>, aiming to keep the flow inside the Unyfy app.</li>
+                      </ul>
+                    </div>
+
+                    <div className="border-l-2 border-[#03045E] pl-3 py-0.5">
+                      <h5 className="font-black text-xs uppercase tracking-wider text-[#03045E]">Competitive and Vendor Research</h5>
+                      <ul className="list-disc list-outside pl-4 space-y-1 mt-1 text-xs md:text-sm">
+                        <li>Led competitive pricing research across 4 fintech platforms (<strong className="text-[#03045E]">Paytm, PhonePe, Jar, and Gullak</strong>) to benchmark digital gold markup strategy.</li>
+                        <li>Built a payout vendor comparison covering <strong className="text-[#03045E]">Razorpay, Cashfree, and Easebuzz</strong>, including a full unit economics workbook, to support a payment infrastructure decision.</li>
+                      </ul>
+                    </div>
+
+                    <div className="border-l-2 border-[#03045E] pl-3 py-0.5">
+                      <h5 className="font-black text-xs uppercase tracking-wider text-[#03045E]">Marketplace Payments Exploration</h5>
+                      <ul className="list-disc list-outside pl-4 space-y-1 mt-1 text-xs md:text-sm">
+                        <li>Evaluated <strong className="text-[#03045E]">Cashfree's Easy Split</strong> for a potential marketplace vertical, flagging open questions on Unyfy's commission structure and vendor payout model, along with technical risks such as <strong className="text-[#03045E]">non-atomic split calls and refund clawback after instant settlement</strong>.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Skills tags */}
+                  <div className="mt-6 pt-4 border-t border-[#03045E]/10">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#4A5D11] block mb-2">Core Skills Demonstrated:</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[
+                        "Regulatory Scoping (RBI, NPCI, SEBI, GST)",
+                        "Engineering & Compliance Collaboration",
+                        "SafeGold Integration",
+                        "Notification & Lifecycle Design",
+                        "WhatsApp Utility Classification",
+                        "Competitive Benchmarking",
+                        "Vendor & Unit Economics",
+                        "Cashfree Easy Split Architecture"
+                      ].map((sk, i) => (
+                        <span key={i} className="text-[10px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm text-[#03045E]">
+                          {sk}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action link */}
+                  <div className="mt-5 pt-3 flex items-center justify-end">
+                    <Link
+                      href="/case-studies/unyfy"
+                      className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-5 text-xs font-bold text-[#03045E] hover:bg-[#ebd96e] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
+                    >
+                      Read PRD Case Study ↗
+                    </Link>
+                  </div>
                 </div>
-                <ul className="text-sm text-[#5C6274] space-y-2 list-disc list-outside pl-4 leading-relaxed">
-                  <li>Owned product delivery for a <strong className="text-[#03045E]">6-member team</strong> from problem definition to launch under <strong className="text-[#03045E]">36-hour sprint conditions</strong>.</li>
-                  <li>Translated ambiguous problem statements into structured roadmaps – <strong className="text-[#03045E]">National Winner</strong> 2025 (SAKSHAM portal), <strong className="text-[#03045E]">Grand Finalist</strong> 2024.</li>
-                </ul>
               </div>
 
-              {/* Exp 2 */}
-              <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-[#03045E]/10 pb-3 mb-3">
-                  <div className="flex flex-col">
-                    <h4 className="text-lg font-black text-[#03045E] tracking-tight">Lead</h4>
-                    <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-wider mt-0.5">Startup Expo, E-Summit 2025</span>
-                  </div>
-                  <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-2.5 py-0.5 text-xs font-bold font-mono text-[#03045E]">
-                    2025
-                  </span>
-                </div>
-                <ul className="text-sm text-[#5C6274] space-y-2 list-disc list-outside pl-4 leading-relaxed">
-                  <li>Managed onboarding of startup founders and exhibitors, aligning expectations with event goals and timelines.</li>
-                  <li>Coordinated cross-functional execution across logistics and communication for seamless on-time delivery.</li>
-                </ul>
-              </div>
+              {/* Campus Leadership & Hackathons */}
+              <div>
+                <h3 className="text-xl font-black uppercase tracking-wider text-[#03045E] border-b-2 border-[#03045E] pb-3 mb-6">Campus Leadership & Hackathons</h3>
 
-              {/* Exp 3 */}
-              <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-[#03045E]/10 pb-3 mb-3">
-                  <div className="flex flex-col">
-                    <h4 className="text-lg font-black text-[#03045E] tracking-tight">Hospitality Co-Lead</h4>
-                    <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-wider mt-0.5">Tantrafiesta 2025</span>
+                <div className="space-y-6">
+                  {/* Exp 1 */}
+                  <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-[#03045E]/10 pb-3 mb-3">
+                      <div className="flex flex-col">
+                        <h4 className="text-lg font-black text-[#03045E] tracking-tight">Team Lead (2x)</h4>
+                        <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-wider mt-0.5">Smart India Hackathon</span>
+                      </div>
+                      <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-2.5 py-0.5 text-xs font-bold font-mono text-[#03045E]">
+                        2024 – 2025
+                      </span>
+                    </div>
+                    <ul className="text-sm text-[#5C6274] space-y-2 list-disc list-outside pl-4 leading-relaxed">
+                      <li>Owned product delivery for a <strong className="text-[#03045E]">6-member team</strong> from problem definition to launch under <strong className="text-[#03045E]">36-hour sprint conditions</strong>.</li>
+                      <li>Translated ambiguous problem statements into structured roadmaps – <strong className="text-[#03045E]">National Winner</strong> 2025 (SAKSHAM portal), <strong className="text-[#03045E]">Grand Finalist</strong> 2024.</li>
+                    </ul>
                   </div>
-                  <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-2.5 py-0.5 text-xs font-bold font-mono text-[#03045E]">
-                    2025
-                  </span>
+
+                  {/* Exp 2 */}
+                  <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-[#03045E]/10 pb-3 mb-3">
+                      <div className="flex flex-col">
+                        <h4 className="text-lg font-black text-[#03045E] tracking-tight">Lead</h4>
+                        <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-wider mt-0.5">Startup Expo, E-Summit 2025</span>
+                      </div>
+                      <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-2.5 py-0.5 text-xs font-bold font-mono text-[#03045E]">
+                        2025
+                      </span>
+                    </div>
+                    <ul className="text-sm text-[#5C6274] space-y-2 list-disc list-outside pl-4 leading-relaxed">
+                      <li>Managed onboarding of startup founders and exhibitors, aligning expectations with event goals and timelines.</li>
+                      <li>Coordinated cross-functional execution across logistics and communication for seamless on-time delivery.</li>
+                    </ul>
+                  </div>
+
+                  {/* Exp 3 */}
+                  <div className="border border-[#03045E] bg-white p-6 shadow-[3px_3px_0px_0px_#03045E] rounded-sm hover:shadow-[5px_5px_0px_0px_#03045E] transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-[#03045E]/10 pb-3 mb-3">
+                      <div className="flex flex-col">
+                        <h4 className="text-lg font-black text-[#03045E] tracking-tight">Hospitality Co-Lead</h4>
+                        <span className="text-xs font-bold text-[#4A5D11] uppercase tracking-wider mt-0.5">Tantrafiesta 2025</span>
+                      </div>
+                      <span className="inline-flex items-center self-start sm:self-auto rounded-sm border border-[#03045E] bg-[#F5E88F] px-2.5 py-0.5 text-xs font-bold font-mono text-[#03045E]">
+                        2025
+                      </span>
+                    </div>
+                    <ul className="text-sm text-[#5C6274] space-y-2 list-disc list-outside pl-4 leading-relaxed">
+                      <li>Led guest experience operations across venue, logistics, and participant touchpoints for the annual technical fest at IIIT Nagpur.</li>
+                      <li>Resolved real-time coordination challenges under pressure with strong <strong className="text-[#03045E]">stakeholder communication</strong>.</li>
+                    </ul>
+                  </div>
                 </div>
-                <ul className="text-sm text-[#5C6274] space-y-2 list-disc list-outside pl-4 leading-relaxed">
-                  <li>Led guest experience operations across venue, logistics, and participant touchpoints for the annual technical fest at IIIT Nagpur.</li>
-                  <li>Resolved real-time coordination challenges under pressure with strong <strong className="text-[#03045E]">stakeholder communication</strong>.</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -363,6 +476,57 @@ export default function Home() {
           <p className="text-[#5C6274] text-sm md:text-base mt-2">A record of digital applications and operational systems designed from scratch.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-12">
+
+            {/* Featured Project: Unyfy Technologies */}
+            <div className="col-span-1 md:col-span-2 flex flex-col md:flex-row border-2 border-[#03045E] bg-white p-6 md:p-8 shadow-[5px_5px_0px_0px_#03045E] hover:shadow-[7px_7px_0px_0px_#03045E] transition-all rounded-sm gap-8 justify-between">
+              <div className="md:w-5/12 flex flex-col gap-4">
+                <div className="aspect-[16/10] w-full border border-[#03045E] overflow-hidden relative group">
+                  <img
+                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
+                    alt="Unyfy Fintech App & Architecture"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-2 left-2 text-[9px] uppercase font-mono tracking-widest text-[#03045E] bg-[#F5E88F] px-2.5 py-1 border border-[#03045E] font-bold">
+                    Fintech Internship · July 2026 – Present
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <span className="text-xs font-bold font-mono text-[#4A5D11]">Unyfy Technologies · Bangalore</span>
+                  <h3 className="text-2xl md:text-3xl font-black text-[#03045E]">Unyfy — Fintech App</h3>
+                  <p className="text-xs text-[#5C6274] font-medium mt-1">
+                    Digital Gold Investing (SafeGold), Lifecycle Notification Engine, & Payments Rails
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 my-2">
+                    <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">SafeGold PRD</span>
+                    <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">Notification Engine</span>
+                    <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">WhatsApp Business API</span>
+                    <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">RBI & NPCI Rules</span>
+                    <span className="text-[9px] font-bold bg-[#FAF9D8] border border-[#03045E]/20 px-2 py-0.5 rounded-sm">Unit Economics</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="md:w-7/12 flex flex-col justify-between gap-5">
+                <ul className="text-sm text-[#5C6274] leading-relaxed space-y-3 list-disc list-outside pl-4">
+                  <li>Owned the <strong className="text-[#03045E]">end-to-end PRD for SafeGold-integrated digital gold investing</strong>, mapping Buy, Sell, SIP, and redemption user flows while resolving complex <strong className="text-[#03045E]">GST & SEBI compliance questions</strong>.</li>
+                  <li>Architected a <strong className="text-[#03045E]">7-category, 26-type notification engine</strong> with frequency capping logic across push, in-app, and email, alongside a 12-template WhatsApp Business API system restructured for <strong className="text-[#03045E]">Utility messaging classification</strong>.</li>
+                  <li>Evaluated tuition payment mechanics against <strong className="text-[#03045E]">RBI and NPCI mandates</strong> (unblocking a phased RuPay UPI & PPI wallet model) and scoped an in-app utility tracker funded via <strong className="text-[#03045E]">discounted Amazon Pay vouchers</strong>.</li>
+                  <li>Benchmarked gold markups across 4 competitors (<strong className="text-[#03045E]">Paytm, PhonePe, Jar, Gullak</strong>) and modeled payout vendor unit economics across Razorpay, Cashfree, and Easebuzz.</li>
+                  <li>Evaluated Cashfree Easy Split for a potential marketplace vertical, flagging commission structures, vendor payout models, and <strong className="text-[#03045E]">instant settlement refund clawback risks</strong>.</li>
+                </ul>
+
+                <div className="flex flex-wrap gap-3 pt-4 border-t border-[#03045E]/10">
+                  <Link
+                    href="/case-studies/unyfy"
+                    className="inline-flex h-9 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-5 text-xs font-bold text-[#03045E] hover:bg-[#ebd96e] transition-all shadow-[1.5px_1.5px_0px_0px_#03045E]"
+                  >
+                    Read PRD Case Study ↗
+                  </Link>
+                </div>
+              </div>
+            </div>
 
             {/* Project 1: SAKSHAM */}
             <div className="flex flex-col border border-[#03045E] bg-white p-6 md:p-8 shadow-[4px_4px_0px_0px_#03045E] hover:shadow-[6px_6px_0px_0px_#03045E] transition-all rounded-sm gap-5 justify-between">
@@ -594,22 +758,22 @@ export default function Home() {
           <h2 className="display-header display-header-skills">skills.</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
-            {/* PM */}
+            {/* PM & Fintech */}
             <div>
               <div className="border-b border-[#03045E] pb-2 mb-3">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A5D11]">Product & Design</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#4A5D11]">Product & Fintech</h3>
               </div>
               <ul className="space-y-1 text-sm text-[#03045E] font-medium">
-                <li>Stakeholder Management</li>
-                <li>User Research</li>
-                <li>Feature Prioritization</li>
+                <li>Regulatory Scoping (RBI, NPCI, SEBI, GST)</li>
+                <li>Vendor & Unit Economics Evaluation</li>
+                <li>Notification Engine & Frequency Capping</li>
+                <li>WhatsApp Business API Utility Messaging</li>
+                <li>Competitive Benchmarking</li>
                 <li>Requirement Gathering (PRDs)</li>
-                <li>MVP Scoping</li>
-                <li>Market Research</li>
-                <li>UI/UX Design</li>
-                <li>Wireframing</li>
-                <li>User Workflows</li>
-                <li>Design Systems</li>
+                <li>Feature Prioritization (RICE/MoSCoW)</li>
+                <li>Stakeholder & Compliance Alignment</li>
+                <li>User Workflows & Journey Mapping</li>
+                <li>MVP Scoping & Launch</li>
               </ul>
             </div>
 

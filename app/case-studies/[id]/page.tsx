@@ -549,6 +549,158 @@ const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
       ]
     },
     conclusion: "Notion AI demonstrates that context is a product's ultimate moat. By placing generative power directly in the block-level workspace, it solves context switching and prompt fatigue, establishing AI as an essential component of document editing."
+  },
+  "unyfy": {
+    title: "Unyfy Technologies",
+    tagline: "Fintech Product Internship: Digital Gold, Notification Engine & Payments Infrastructure",
+    category: "Fintech Product Internship",
+    context: "Product Internship at Unyfy Technologies (Fintech) based in Bangalore (July 2026 – Present). Unyfy is a comprehensive consumer fintech application spanning digital gold micro-investing, lifecycle notification infrastructure, utility bill payments, and marketplace financial rails.",
+    problemStatement: "Scaling a consumer fintech app demands solving complex intersections between regulatory compliance, unit economics, and user friction. At Unyfy, five core product initiatives were evaluated and owned: (1) Architecting an end-to-end SafeGold investing interface while addressing GST treatment and SEBI's unregulated digital gold classification; (2) Designing an omnichannel notification engine (in-app, push, email, WhatsApp) with frequency capping to balance retention against user notification fatigue; (3) Restructuring 12 WhatsApp Business API notification templates to avoid costly marketing fees and qualify under Meta's strict Utility messaging criteria; (4) Evaluating credit card tuition fee payment mechanisms against RBI and NPCI rules, formulating a phased compliant roadmap (RuPay UPI, PPI wallet, CRED-style bill payment), and scoping in-app bill utility payments funded by discounted Amazon Pay vouchers; and (5) Benchmarking competitor digital gold markup strategies across 4 apps (Paytm, PhonePe, Jar, Gullak), modeling payout vendor unit economics (Razorpay, Cashfree, Easebuzz), and identifying technical risks in Cashfree Easy Split marketplace payments (non-atomic split calls and refund clawbacks).",
+    goals: [
+      "Own the end-to-end PRD for SafeGold-integrated digital gold investing across Buy, Sell, SIP, and physical redemption user flows.",
+      "Resolve regulatory compliance ambiguities around GST treatment and SEBI advisory regulations for digital gold.",
+      "Architect an omnichannel notification engine across 7 trigger categories and 26 notification types with frequency capping logic.",
+      "Build and restructure a 12-template WhatsApp Business API system so core alerts qualify as cost-efficient Utility messaging.",
+      "Formulate a compliant, phased roadmap (RuPay UPI, PPI wallet, CRED-style bill payment) for tuition payments in response to RBI/NPCI blocks.",
+      "Scope a bill utility feature tracking electricity, DTH, and recharge bills via SMS/email with Amazon Pay voucher funding.",
+      "Benchmark competitor pricing across 4 platforms (Paytm, PhonePe, Jar, Gullak) and build a vendor unit economics evaluation model.",
+      "Evaluate Cashfree Easy Split marketplace payments, flagging commission models and instant settlement refund clawback risks."
+    ],
+    targetUsers: [
+      {
+        role: "Micro-Savers & Gold Investors",
+        description: "Young professionals and retail savers wanting automated, fractional digital gold accumulation with trusted vault purity and clear redemption options."
+      },
+      {
+        role: "Household Bill & Tuition Payers",
+        description: "Users seeking consolidated tracking for recurring utility bills (electricity, DTH, recharge) and education fees with cashback/discount incentives."
+      },
+      {
+        role: "Internal Compliance & Legal Teams",
+        description: "Stakeholders auditing flows against RBI circulars, NPCI merchant rules, SEBI unregulated asset stances, and GST invoicing."
+      },
+      {
+        role: "Engineering & Finance Ops",
+        description: "Teams executing SafeGold API webhooks, managing WhatsApp Business API templates, and monitoring payout gateway processing margins."
+      }
+    ],
+    painPoints: [
+      {
+        role: "Retail Users",
+        points: [
+          "Confusion surrounding digital gold buy/sell spread pricing and GST deductions at purchase.",
+          "Aggressive, repetitive promotional push messages causing notification fatigue and app uninstalls.",
+          "Manual tracking of scattered utility bills across multiple external portals without consolidated reminders."
+        ]
+      },
+      {
+        role: "Compliance & Legal",
+        points: [
+          "Regulatory uncertainty around digital gold under SEBI purview and exact GST reporting requirements.",
+          "RBI and NPCI blocking direct credit card routing for personal/tuition payments due to credit line usage concerns.",
+          "WhatsApp flagging operational notifications as Marketing, incurring significantly higher per-message fees."
+        ]
+      },
+      {
+        role: "Fintech Business & Ops",
+        points: [
+          "Opaque pricing markups leading to competitive disadvantage against Jar, Gullak, PhonePe, and Paytm.",
+          "Payout gateway transaction fees eating into thin fintech operating margins across Razorpay, Cashfree, and Easebuzz.",
+          "Marketplace split payments risking unrecoverable negative balances when customer refunds occur after instant vendor settlements."
+        ]
+      }
+    ],
+    userStories: [
+      {
+        role: "Retail Investor",
+        story: "set up a recurring daily or weekly gold SIP integrated with SafeGold",
+        benefit: "I can build long-term savings automatically without having to manually monitor gold market rates every day."
+      },
+      {
+        role: "Active User",
+        story: "receive transactional alerts and gold price drop nudges on WhatsApp as Utility messages",
+        benefit: "I stay updated on my portfolio and payment due dates directly in WhatsApp without getting spammed with intrusive marketing."
+      },
+      {
+        role: "Parent / Student",
+        story: "pay college tuition fees through a compliant and rewarding payment rail (RuPay UPI / PPI wallet)",
+        benefit: "I can settle high-ticket academic fees reliably without my transactions getting declined by RBI credit card compliance rules."
+      },
+      {
+        role: "Finance Lead",
+        story: "compare vendor payout fee tiers and commission splits using a clear unit economics model",
+        benefit: "our team can select the optimal payment infrastructure partner (Cashfree vs Razorpay vs Easebuzz) to preserve product margins."
+      },
+      {
+        role: "Operations Manager",
+        story: "ensure marketplace vendor payouts use atomic split calls and safeguard against refund clawbacks",
+        benefit: "we eliminate platform financial liability when customers request returns or cancellations post-settlement."
+      }
+    ],
+    featurePrioritization: [
+      {
+        feature: "SafeGold Digital Gold PRD (Buy, Sell, SIP, Redemption)",
+        reach: 2500,
+        impact: 3,
+        confidence: 90,
+        effort: 4,
+        riceScore: 1688
+      },
+      {
+        feature: "Notification Engine & Frequency Capping (7 Cat / 26 Types)",
+        reach: 2000,
+        impact: 3,
+        confidence: 85,
+        effort: 3,
+        riceScore: 1700
+      },
+      {
+        feature: "WhatsApp Business API 12-Template Utility Restructuring",
+        reach: 1800,
+        impact: 2,
+        confidence: 90,
+        effort: 2,
+        riceScore: 1620
+      },
+      {
+        feature: "Bill Utility Tracking via SMS/Email (Amazon Pay Vouchers)",
+        reach: 1500,
+        impact: 2,
+        confidence: 75,
+        effort: 5,
+        riceScore: 450
+      },
+      {
+        feature: "RBI/NPCI Phased Tuition Payment Strategy (RuPay UPI / PPI)",
+        reach: 800,
+        impact: 3,
+        confidence: 70,
+        effort: 4,
+        riceScore: 420
+      },
+      {
+        feature: "Payout Vendor Economics & Cashfree Split Risk Model",
+        reach: 600,
+        impact: 2,
+        confidence: 80,
+        effort: 3,
+        riceScore: 320
+      }
+    ],
+    successMetrics: {
+      northStar: {
+        name: "Monthly Gold Investment Volume (GIV) & Retained Notification Engagement",
+        description: "Composite metric tracking cumulative gold bought/SIP transacted via SafeGold alongside sustained active notification delivery without opt-outs."
+      },
+      secondary: [
+        "Gold SIP setup to active renewal rate across 30/60/90 day cohorts",
+        "WhatsApp template Utility classification approval rate (100% of 4 restructured templates approved by Meta)",
+        "Notification opt-out / unsubscription rate (kept below <1.2% through frequency capping)",
+        "Net transaction margin improvement via payout vendor optimization (Razorpay vs Cashfree vs Easebuzz)",
+        "Zero uncollected clawback balance in marketplace split settlement trials"
+      ]
+    },
+    conclusion: "The Unyfy product internship demonstrated end-to-end product execution in high-stakes fintech. By anchoring feature design in regulatory compliance (RBI, NPCI, SEBI, GST), building defensible unit economics, and executing fine-grained notification logic with frequency capping, these initiatives positioned Unyfy for scalable and compliant growth."
   }
 };
 
