@@ -126,7 +126,7 @@ export default function Home() {
 
             <div className="mt-6 flex flex-wrap gap-4">
               <a
-                href="/Anup%20Thakre%20-%20Product.pdf"
+                href="/Anup%20Thakre%20-%20Product%20v2.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-sm border border-[#03045E] bg-[#F5E88F] px-8 text-sm font-bold text-[#03045E] hover:bg-[#ebd96e] transition-colors shadow-[3.5px_3.5px_0px_0px_#03045E] cursor-pointer"
